@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLOCK</title>
+    
+<style>
+    body {
+        background-image: url(/Images/bg.gif.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 100vh;
+    }
+    #clock {
+        font-size: 7VW;
+        color: rgb(16, 145, 117);
+        text-align: center;
+        transform: translateY(20vw);
+        font-style: bold;
+        font-family: fantasy;
+        text-shadow:5px -5px 0px #7b7bf3;
+    }
+    /******S phone*******/
+    @media only screen and (orientation:portrait) {  
+            
+        body {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;    
+        }
+        #clock {
+            transform: translateY(83vw);
+            text-shadow:1px -1px 0px #7b7bf3; 
+        }
+    }
+    /******M phone*******/
+    @media only screen and (min-width:321px) and (max-width:375px) {
+        #clock {
+            transform: translateY(70vw);
+            text-shadow:1px -1px 0px #7b7bf3; 
+        }
+    }
+    
+    /******L phone*******/
+    @media only screen and (min-width:376px) and (max-width:425px) {
+        #clock {
+            transform: translateY(60vw);
+            text-shadow:1px -1px 0px #7b7bf3; 
+        }
+    }
+    /******tablet*******/
+    @media only screen and (min-width:426px) and (max-width:768px) {
+        #clock {
+            transform: translateY(32vw);
+            text-shadow:1px -1px 0px #7b7bf3; 
+        }
+    }
+    /******laptop*******/
+    @media only screen and (min-width:769px) and (max-width:1024px) {
+        #clock {
+            transform: translateY(23vw);
+            text-shadow:1px -1px 0px #7b7bf3; 
+        }
+    } 
+
+</style>
+</head>
+<body>
+    <body>
+        <div class="content" id="clock" onload="currentTime()"></div>
+    
+    <script>
+        function currentTime() {
+            let date = new Date();
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let ss = date.getSeconds();
+            let session = "AM";
+    
+            if(hh === 0){
+                hh = 12;
+            }
+                if(hh > 12){
+                    hh = hh - 12;
+                    session = "PM";
+                }
+    
+                hh = (hh < 10) ? "0" + hh : hh;
+                mm = (mm < 10) ? "0" + mm : mm;
+                ss = (ss < 10) ? "0" + ss : ss;
+    
+                let time = hh + ":" + mm + ":" + ss + " " + session;
+    
+                document.getElementById("clock").innerText = time;
+                let t = setTimeout(function()  {currentTime()}, 1000);
+            }
+            currentTime();
+    
+    </script>
+    </body>
+    </html>

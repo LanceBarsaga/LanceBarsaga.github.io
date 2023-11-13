@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>light</title>
+  <style>
+    img {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bulb">
+    <img id="personal" src="/Images/bulb_off.jpg" onclick="light_change()" class="bulb_off">
+  </div>
+</body>
+</html>
+<script>
+  function light_change (){
+    let image = document.getElementById('personal');
+
+    if(image.src.match("bulb_off")) {
+      image.src = "/Images/bulb_on.webp";
+    } else {
+      image.src = "/Images/bulb_off.jpg";
+    } 
+    
+  }
+</script>

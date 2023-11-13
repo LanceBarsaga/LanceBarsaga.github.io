@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE</title>
+
+    <link rel="stylesheet" href="/css/navigator.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://fonts.cdnfonts.com/css/techno-board" rel="stylesheet">
+</head>
+<body>
+    <div class="wholescreen">
+        <div class="header">  
+          <a class="Avatar"></a>
+          <nav class="header-right">
+            <a href="/CONTACT.html">CONTACT</a>
+            <a href="/PROJECT.html">PROJECTS</a>
+            <a href="/ABOUT.html">ABOUT</a>  
+            <a class="active" href="#/index.html">HOME</a>
+          </nav>
+        </div>
+<!--------------------HOME------------------------->
+    <div class="intro">
+        <h2>HELLO<br> I'M LANCE IAN</h2>
+        <p1>I am Lance Ian D. Barsaga Bachelor of Science 
+          in Information Technology 
+          College in olivarez College Paranaque. 
+        </p1>  
+    </div>
+<!------------------Image---------------------->
+    <script>
+    function displayNextImage() {
+        x = (x === images.length - 1) ? 0 : x + 1;
+        document.getElementById("img").src = images[x];
+        }
+    function displayPreviousImage() {
+        x = (x <= 0) ? images.length - 1 : x - 1;
+        document.getElementById("img").src = images[x];
+        }
+    function startTimer() {
+        setInterval(displayNextImage, 3000);
+        }
+        var images = [], x = -1;
+        images[0] = "/Images/personal1.jpg";
+        images[1] = "/Images/personal2.jpg";
+        images[2] = "/Images/personal.jpg";
+    </script>
+    <body onload = "startTimer()">
+    <img id="img" src="\Images\personal.jpg"alt="picture">
+</body>
+<!--------------------FOOTER------------------------->
+<div class="footer">
+    <div class="foot">
+        <p><marquee>THANK YOU FOR VISITING MY PERSONAL WEBSITE. HAVE A NICE DAY!</marquee></p>
+        <p>If you're looking to work with me or want to grab some coffee, feel free to email me at<br>
+        <a href="mailto:lanceian.barsaga@olivarezcollege.edu.ph? subject=Hey!" target="_blank"
+        rel="noopener">lanceian.barsaga@olivarezcollege.edu.ph</a></p>
+    </div>
+</div>
+</div>   
+</body>
+</html>

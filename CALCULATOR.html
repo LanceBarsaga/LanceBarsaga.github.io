@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/techno-board" rel="stylesheet">
+    <title>CALCULATOR</title>
+<style>
+    @import url('https://fonts.cdnfonts.com/css/techno-board');   
+        body {
+            overflow: hidden;
+            background-image: url(/Images/wow.webp);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            
+        }
+        h1 {
+            padding: 20px 10px;
+            text-align: right;
+            font-size: 4vw;
+            font-family: "Techno Board", Courier;
+            margin-right: 29vw;
+            margin-top: 1vw;
+            color: #f7718e;
+        }
+
+        .container {
+            float: right;
+            display: flex;
+            margin-top: 0.9vw;
+            justify-content: center;
+        }
+
+        .box{
+            background-color: #f7718e;
+            padding: 1vw;
+            width: 35vw;
+            height: 27vw;
+            border-radius: 10px;
+            border: 4px solid #485c94;
+            margin-right: 19vw;
+        }
+
+        .textview {
+            font-size: 5em;
+            width: 95%;
+            margin-left: 1vw;
+            border-radius: 10px;
+            border: 4px solid #485c94;
+        }
+
+         .cal-buttons {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: stretch;
+            gap: 2px;
+            margin-top: 1vw;
+         }
+
+         .cal-buttons button {
+            width: 100%;
+            height: 4vw;
+            padding: 2vw 2vw;
+            font-size: 1.2vw;
+            border-radius: 10px;
+            border: 4px solid #485c94;
+         }
+         .cal-buttons :hover {
+            transform: scale(1.1);
+         }
+
+         .cal-buttons .btnequal {
+            grid-row: 4/6;
+            grid-column-start: 4;
+            height: 9vw;
+         }
+
+         .cal-buttons .btnzero {
+            grid-column:  span 2;
+         }
+    @media only screen and (orientation:portrait) {
+        body { 
+        background-position: center;
+        background-attachment: fixed;
+        }
+        .box{
+            height: 60vw;
+            width: 50vw;
+        }
+        .cal-buttons button {
+            font-size: 2vw;
+            height: 9vw;
+        }
+        .cal-buttons .btnequal {
+            height: 19vw;
+        }
+       
+        .textview {
+            font-size: 5em;
+            width: 95%;
+            margin-left: 1vw;
+            border-radius: 10px;
+            border: 4px solid #485c94;
+        }
+        .container {
+            float: right;
+            display: flex;
+            margin-top: 15vw;
+            margin-right: 1vw;
+            justify-content: center;
+        }
+        h1 {
+            padding: 20px 10px;
+            text-align: right;
+            font-size: 8vw;
+            font-family: "Techno Board", Courier;
+            margin-right: 20vw;
+            transform: translateY(7vw);
+            color: #f7718e;
+        }
+
+    }
+</style>
+</head>
+<body>
+    <Div class="cal">
+        <h1><u>CALCULATOR</u></h1>
+    </Div>
+        <div class="container">
+            <div class="box">
+                <form action="" name="form1">
+                <input type="text" class="textview" name="textview">
+            </form >
+            <div class="cal-buttons">
+               <button type="button" onclick="form1.textview.value=''" value="C">C</button>
+               <button type="button" onclick="backspace()" value="B">B</button>
+               <button type="button" onclick="insert('/')" value="/">/</button>
+               <button type="button" onclick="insert('*')" value="*">*</button>
+
+               <button type="button" onclick="insert(7)" value="7">7</button>
+               <button type="button" onclick="insert(8)" value="8">8</button>
+               <button type="button" onclick="insert(9)" value="9">9</button>
+               <button type="button" onclick="insert('-')" value="-">-</button>
+
+               <button type="button" onclick="insert(4)" value="4">4</button>
+               <button type="button" onclick="insert(5)" value="5">5</button>
+               <button type="button" onclick="insert(6)" value="6">6</button>
+               <button type="button" onclick="insert('+')" value="+">+</button>
+
+               <button type="button" onclick="insert(1)" value="1">1</button>
+               <button type="button" onclick="insert(2)" value="2">2</button>
+               <button type="button" onclick="insert(3)" value="3">3</button>
+              
+               <button type="button" class="btnequal" onclick="equal()" value="=">=</button>
+               <button type="button" class="btnzero" onclick="insert(0)" value="0">0</button>
+               <button type="button" class="btndot" onclick="insert('.')" value=".">.</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function insert(num){
+        const inputvalue = document.form1.textview.value;
+        document.form1.textview.value= inputvalue + num;
+    }
+
+    function backspace() {
+        let total = document.form1.textview.value;
+        total = total.slice(0,-1);
+        document.form1.textview.value = total;
+    }
+
+    function equal (){
+        let total = document.form1.textview.value;
+        if(total){
+            total = eval(total);
+            document.form1.textview.value = total;
+        } else {
+        document.form1.textview.value = "error";
+        }   
+    }
+</script>
