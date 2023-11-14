@@ -6,11 +6,11 @@
   position: relative;
   width: 53vw;
   text-align: center;
-  height: 30.5vw;
+  height: 31vw;
   color: #64d6e6;
   font-size: 1vw;
   margin-left: 2vw;
-  margin-top: 6.1vw;
+  margin-top: 11vw;
   font-family:'Tilt Neon';
   text-shadow:5px -8px 0px #19191a;
   animation: fadeInAnimation ease 3s;
@@ -26,16 +26,21 @@
   }
 }
 
-h2 {
+  h2 {
+    word-spacing: 0.3vw;
+    letter-spacing: 0.4vw;
     color: #64d6e6;
     font-size: 1.4vw;
     font-family: "Techno Board", Courier;
-    
+    text-shadow:3px -3px 0px #19191a;
   }
   h3 {
+    word-spacing: 0.3vw;
+    letter-spacing: 0.4vw;
     color: #64d6e6;
     font-size: 1.5vw;
     font-family: "Techno Board", Courier;
+    text-shadow:3px -3px 0px #19191a;
   }
 
  button {
@@ -53,8 +58,8 @@ h2 {
   }      
   img {
     float: right;
-    width:10vw;
-    height:14vw;
+    width:12vw;
+    height:16vw;
     border: 3px solid #81bafc;
     animation: element 5s infinite;  
   }
@@ -77,16 +82,16 @@ h2 {
     }
   } 
 #one {
-  margin-right: 2.5vw;
-  transform: translateY(-30vw);
+  margin-right: 2vw;
+  transform: translateY(-40vw);
 }
 #one:hover {
   transform: scale(1.5)
-  translateY(-18vw);
+  translateY(-27vw);
   transition: 1s;
 }
 #two {
-  transform: translateY(-15vw)
+  transform: translateY(-19vw)
 }
 #two:hover {
   transform: scale(1.5)
@@ -94,12 +99,11 @@ h2 {
   transition: 1s;  
 }
 #three {
-  margin-right: 1vw;
-  transform: translateY(-30vw);
+  transform: translateY(-40vw);
 }
 #three:hover {
   transform: scale(1.5)
-  translateY(-18vw);
+  translateY(-27vw);
   transition: 1s;
 }
 /******S phone*******/
@@ -128,7 +132,7 @@ h2 {
   }
 
  button {
-    color: #20db94;
+    color: #77e9e9;
     height: 9vw;
     width: 19vw;
     font-size: 3vw;
@@ -162,18 +166,98 @@ h2 {
 @media only screen and (min-width:321px) and (max-width:375px) {
 
 }
+
 /******tablet*******/
 @media only screen and (min-width:426px) and (max-width:768px) {
+  .wholescreen {
+    height: 150vw;
+  }
   .aboutme {
-font-size: 1.5vw;
-text-shadow:2px -2px 0px #19191a;
+    background-image: url(/image/aboutmeT.jpg);
+    position: relative;
+    width: 95.5vw;
+    text-align: center;
+    height: 56vw;
+    color: #64d6e6;
+    font-size: 2vw;
+    margin-left: 2vw;
+    margin-top: 11vw;
+    text-shadow:3px -3px 0px #19191a;
+}
+.about {
+  width: 84vw;
+  margin-left: 5.5vw;
+}
+h2 {
+  color: #77e9e9;
+  font-size: 2.5vw;
+  margin-top: 1vw;
+}
+h3 {
+  color: #77e9e9;
+  font-size: 2vw;
+}
+
+button {
+  color: #77e9e9;
+  height: 4vw;
+  border: 2px solid;
+  width: 19vw;
+  font-size: 2.5vw;
+  margin-left: 1vw;
+  text-shadow:1px -2px 0px #19191a;
+  background-color: #1b3047e3;
+}
+img {
+  float: right;
+  width:28vw;
+  height:39vw;
+} 
+#one {
+margin-right: 3vw;
+transform: translateY(10vw);
+}
+
+#two {
+margin-right: 5vw;
+transform: translateY(10vw)
+}
+
+#three {
+margin-right: 5vw;
+transform: translateY(10vw);
 }
 }
 /******laptop*******/
 @media only screen and (min-width:769px) and (max-width:1024px) {
+  
+  .wholescreen {
+    height: 10vw;
+  }
   .aboutme {
-    font-size: 1.1vw;
+    height: 36vw;
+    width: 59vw;
+    font-size: 1.2vw;
     text-shadow:2px -2px 0px #19191a;
     transform: translateY(-5vw);
+  }
+  .about {
+    width: 50vw;
+    margin-left: 5vw;
+  }
+  h2 {
+    color: #54c5c5;
+    word-spacing: 0.3vw;
+    letter-spacing: 0.3vw;
+    font-size: 1,7vw;
+    margin-top: 1vw;
+    text-shadow:3px -3px 0px #19191a;
+  }
+  h3 {
+    color: #54c5c5;
+    word-spacing: 0.3vw;
+    letter-spacing: 0.3vw;
+    font-size: 1.5vw;
+    text-shadow:3px -3px 0px #19191a;
   }
 }

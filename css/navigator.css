@@ -40,8 +40,7 @@ body {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  margin-right: 1vw;
-  font-size: 1,5vw;
+  font-size: 1.3vw;
   line-height: 1.3vw;
   border-radius: 0.6vw;
   border: 2px solid gray;
@@ -88,7 +87,6 @@ transform: translateY(-0.8vw);
   height: 6vw;
 }  
 .foot {
- font-size: 0.8vw;
   color: #64d6e6;
   text-align: center;
   width: 40vw;
@@ -101,7 +99,7 @@ transform: translateY(-0.8vw);
   
 
   body {
-    background-image: url(/image/bg2S.jpg);
+    background-image: url(/image/bgs.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -133,7 +131,7 @@ transform: translateY(-0.8vw);
   width: 10.5vw;
   height: 10.5vw;
   background-size: cover;
-  transform: translateY(20vw);
+  transform: translateY(17vw);
   }
   
   .header a:hover {
@@ -146,7 +144,7 @@ transform: translateY(-0.8vw);
     color: #6be2e2;
   }
   .header-right {
-    transform: translateY(23vw);
+    transform: translateY(19vw);
   }
   
   .header-right a:link {
@@ -156,7 +154,7 @@ transform: translateY(-0.8vw);
   
   .footer {
     position: fixed;
-    transform: translateY(-0.2vw);
+    transform: translateY(2vw);
     width: 100vw;
     height: 25vw;
     
@@ -164,7 +162,7 @@ transform: translateY(-0.8vw);
   .foot {
     float: right;
     font-size: 2.5vw;
-    transform: translateY(3vw);
+    transform: translateY(4vw);
     width: 100vw;
   }
 }
@@ -237,7 +235,7 @@ transform: translateY(-0.8vw);
   }
   .foot {
     float: right;
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     transform: translateY(-1vw);
     width: 99vw;
   }
@@ -265,7 +263,6 @@ transform: translateY(-0.8vw);
     text-align: center;
     padding: 12px;
     text-decoration: none;
-    margin-right: 1vw;
     font-size: 3.5vw;
     line-height: 0.1vw;
     margin-top: 0.7vw;
@@ -306,26 +303,23 @@ transform: translateY(-0.8vw);
     bottom: 0;
     width: 100%;
     height: 17vw;
-    transform: translateY(-0.2vw);
+    transform: translateY(1vw);
     
   }
   .foot {
     float: right;
-    font-size: 2vw;
-    transform: translateY(1.5vw);
-    width: 99vw;
+    font-size: 1.9vw;
+    margin-right: 10vw;
+    transform: translateY(1vw);
+    width: 80vw;
   }
 }
 
 /******tablet*******/
 @media only screen and (min-width:426px) and (max-width:768px) {
   
-  .wholescreen {
-    height: 80vw;
-  }
-
   .body {
-    background-image: url(/image/bg2S.jpg);
+    background-image: url(/image/bgs.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -338,6 +332,7 @@ transform: translateY(-0.8vw);
     height: 15vw;
   }
   .header a {
+    letter-spacing: 0.2vw;
     float: left;
     color: #6be2e2;
     text-align: center;
@@ -370,6 +365,7 @@ transform: translateY(-0.8vw);
     color: #6be2e2;
   }
   .header-right {
+    margin-right: 8vw;
     transform: translateY(9vw);
   }
   
@@ -384,22 +380,24 @@ transform: translateY(-0.8vw);
     bottom: 0;
     width: 100%;
     height: 10vw;
-    transform: translateY(-0.1vw);
+    transform: translateY(1vw);
     
   }
   .foot {
     float: right;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     margin-right: 26vw;
     width: 48vw;
-    transform: translateY(1vw);
+    transform: translateY(0.5vw);
   }
 }
 
 
 /******laptop*******/
 @media only screen and (min-width:769px) and (max-width:1024px) {
-
+  .wholescreen {
+    height: 10vw;
+  }
   .body {
     background-image: url(/image/bg2S.jpg);
     background-repeat: no-repeat;
@@ -411,9 +409,10 @@ transform: translateY(-0.8vw);
   .header {
     padding: 1.5vw 1vw;
     width: 100%;
-    height: 11.5vw;
+    height: 12.5vw;
   }
   .header a {
+    letter-spacing: 0.2vw;
     float: left;
     color: #6be2e2;
     text-align: center;
@@ -421,7 +420,7 @@ transform: translateY(-0.8vw);
     text-decoration: none;
     margin-right: 1vw;
     font-size: 3vw;
-    line-height: 0.1vw;
+    line-height: 0.3vw;
     margin-top: 0.7vw;
     font-family: "Techno Board", Courier;
     border-radius: 0.5vw;
@@ -446,7 +445,8 @@ transform: translateY(-0.8vw);
     color: #6be2e2;
   }
   .header-right {
-    transform: translateY(5vw);
+    margin-right: 18vw;
+    transform: translateY(6.5vw);
   }
   
   .header-right a:link {
@@ -460,14 +460,14 @@ transform: translateY(-0.8vw);
     bottom: 0;
     width: 100vw;
     height: 8vw;
-    transform: translateY(-0.1vw);
+    transform: translateY(1vw);
     
   }
   .foot {
     float: right;
-    font-size: 1vw;
+    font-size: 0.9vw;
     margin-right: 31vw;
-    width: 38vw;
-    transform: translateY(0.5vw);
+    width: 37vw;
+    transform: translateY(0.2vw);
   }
 }

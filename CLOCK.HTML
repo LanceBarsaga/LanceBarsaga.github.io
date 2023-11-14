@@ -18,7 +18,7 @@
         font-size: 7VW;
         color: rgb(16, 145, 117);
         text-align: center;
-        transform: translateY(20vw);
+        transform: translateY(19vw);
         font-style: bold;
         font-family: fantasy;
         text-shadow:5px -5px 0px #7b7bf3;
@@ -33,14 +33,16 @@
             background-attachment: fixed;    
         }
         #clock {
-            transform: translateY(83vw);
+            font-size: 10vw;
+            transform: translateY(69vw);
             text-shadow:1px -1px 0px #7b7bf3; 
         }
     }
     /******M phone*******/
     @media only screen and (min-width:321px) and (max-width:375px) {
         #clock {
-            transform: translateY(70vw);
+            font-size: 9vw;
+            transform: translateY(59vw);
             text-shadow:1px -1px 0px #7b7bf3; 
         }
     }
@@ -48,30 +50,34 @@
     /******L phone*******/
     @media only screen and (min-width:376px) and (max-width:425px) {
         #clock {
-            transform: translateY(60vw);
+            font-size: 8vw;
+            transform: translateY(52vw);
             text-shadow:1px -1px 0px #7b7bf3; 
         }
     }
     /******tablet*******/
     @media only screen and (min-width:426px) and (max-width:768px) {
         #clock {
-            transform: translateY(32vw);
+            transform: translateY(27vw);
             text-shadow:1px -1px 0px #7b7bf3; 
         }
     }
     /******laptop*******/
     @media only screen and (min-width:769px) and (max-width:1024px) {
         #clock {
-            transform: translateY(23vw);
-            text-shadow:1px -1px 0px #7b7bf3; 
+            transform: translateY(20vw);
+            text-shadow:2px -2px 0px #7b7bf3; 
         }
     } 
 
 </style>
 </head>
 <body>
-    <body>
-        <div class="content" id="clock" onload="currentTime()"></div>
+    <div class="back">
+        <a href="/PROJECT.html">
+            <button class="project">back button</button></a>
+    </div>
+    <div class="content" id="clock" onload="currentTime()"></div>
     
     <script>
         function currentTime() {

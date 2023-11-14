@@ -92,8 +92,11 @@ h2,h3 {
 /******L phone*******/
 @media only screen and (min-width:376px) and (max-width:425px) {
   
+  .intro {
+    transform: translateY(-15vw);
+  }
   img {
-    transform: translateY(-3vw);
+    transform: translateY(-40vw);
     
 }
 }
@@ -103,10 +106,11 @@ h2,h3 {
   .intro {
     width: 45vw;
    font-size: 2.5vw;
+   transform: translateY(-16vw);
   }
   
   img {
-      transform: translateY(-15vw);
+      transform: translateY(-20vw);
       width: 27vw;
       height: 34vw;
   }
