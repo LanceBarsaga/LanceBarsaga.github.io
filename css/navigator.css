@@ -6,13 +6,24 @@ html ::-webkit-scrollbar {
 }
 
 body {
-  background-image: url(/image/bg2.webp);
+  background-image: url(/image/bgg.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
+  overflow: hidden;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vw;
+  height: 6.3vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  }
 
 body {
   margin: 0;

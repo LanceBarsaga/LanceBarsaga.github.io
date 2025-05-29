@@ -12,28 +12,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   
   <style>
-::-webkit-scrollbar {
-  width: 1.2vw;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 25px;
-  box-shadow: inset 0 0 6px #58c1cf;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #58c1cf, #007bff);
-  border-radius: 10px;
-  box-shadow: 0 0 10px #58c1cf;
-  transition: background 0.3s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #58c1cf, #58c1cf);
-  box-shadow: 0 0 15px #58c1cf;
-}
-
     * {
       margin: 0;
       padding: 0;
@@ -124,24 +102,100 @@
       margin-top: -1vw;
       margin-left: -1vw;
   }
-/* =============------------- CONTACT US ============================================*/
-.project-container {
-  overflow: scroll;
-  overflow-x: hidden;
-  user-select: none;
-  transform: translateY(-.5vw);
-  float: left;
-  margin-left: 2vw;
-  margin-top: 2vw;
-  width: 70vw;
-  height: 30vw;
-  background: rgba(0, 255, 200, 0.144);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* =============-------------about page============================================*/
+
+.picture-container {
+      position: relative;
+      background-color: rgba(0, 255, 200, 0.1);
+      float: left;
+      margin-left: 9vw;
+      border-radius: 15px;
+      width: 31vw;
+
 }
+
+
+    .picture1 {
+    position: absolute;
+      background-color: rgba(0, 255, 200, 0.1);
+      padding: 10px;
+      margin-top: .8vw;
+      float: left;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 1.4vw;
+      font-weight: bold;
+      width: 10vw;
+      height: 13vw;
+      box-shadow: inset 0 0 10px #58c1cf;
+      color: #58c1cf;
+    }
+    .picture2 {
+    position: absolute;
+      background-color: rgba(0, 255, 200, 0.1);
+      padding: 10px;
+      float: left;
+      margin-top: .8vw;
+      margin-left: 10.5vw;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 1.4vw;
+      font-weight: bold;
+      width: 10vw;
+      height: 13vw;
+      box-shadow: inset 0 0 10px #58c1cf;
+      color: #58c1cf;
+    }
+    .picture3 {
+    position: relative;
+      background-color: rgba(0, 255, 200, 0.1);
+      padding: 10px;
+      float: right;
+      margin-top: .8vw;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 1.4vw;
+      font-weight: bold;
+      width: 10vw;
+      height: 13vw;
+      box-shadow: inset 0 0 10px #58c1cf;
+      color: #58c1cf;
+    }
+    .picture4 {
+    position: relative;
+      background-color: rgba(0, 255, 200, 0.1);
+      padding: 10px;
+      float: right;
+      transform: translateY(6vw);
+      margin-left: 1.5vw;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 1.4vw;
+      font-weight: bold;
+      width: 10vw;
+      height: 13vw;
+      box-shadow: inset 0 0 10px #58c1cf;
+      color: #58c1cf;
+    }
+
+    .picture1 img {
+    position: relative;
+    border-radius: 10px;
+    }
+    .picture2 img {
+    position: relative;
+    border-radius: 10px;
+    }
+    .picture3 img {
+    position: relative;
+    border-radius: 10px;
+    }
+
+    .picture4 img {
+    position: relative;
+    border-radius: 10px;
+    }
+
 
 .box-container {
 
@@ -153,14 +207,14 @@
   padding: 20px;
 }
 
-.project {
+.profile {
   user-select: none;
-  transform: translateY(-3.5vw);
+  transform: translateY(3vw);
   float: left;
   margin-left: 8vw;
   margin-top: 2vw;
-  width: 20vw;
-  height: 25vw;
+  width: 19vw;
+  height: 17vw;
   background: rgba(0, 255, 200, 0.144);
   border-radius: 20px;
   box-shadow: 0 0 10px #00ffe0;
@@ -169,16 +223,26 @@
   align-items: center;
 }
 
+.text-profile {
+  margin-top: 2.3vw;
+margin-left: -1vw;
+  font-size: .8vw;
+  color: #d1d1d1;
+  text-align: center;
+  font-weight: bold;
+  text-align: left;
+}
 
 
-/* =============------------- CONTACT ME ============================================*/
-.CONTACT {
-    transform: translateY(-3.5vw);
+
+/* =============------------- about me ============================================*/
+.about {
+    transform: translateY(-4vw);
   float: left;
   margin-left: 2vw;
   margin-top: 2vw;
-  width: 15vw;
-  height: 20vw;
+  width: 49vw;
+  height: 30vw;
   background: rgba(0, 255, 200, 0.1);
   border-radius: 20px;
   box-shadow: 0 0 10px #00ffe0;
@@ -187,125 +251,46 @@
   align-items: center;
 }
 
-.project {
-    transform: translateY(-3.5vw);
-  float: left;
-  margin-left: .5vw;
-  margin-top: 2vw;
-  width: 15vw;
-  height: 20vw;
-  background: rgba(0, 255, 200, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.about-me {
+    background-color: #234053;
+    width: 48vw;
+    height: 29vw;
+    border-radius: 20px;
 }
 
-/* =============------------- Add project ============================================*/
-
-.add-project {
-  transform: translateY(-.5vw);
-  float: left;
-  margin-left: 8.5vw;
-  margin-top: 2vw;
-  width: 15vw;
-  height: 16vw;
-  background: rgba(0, 255, 200, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  
+.about-me p {
+    user-select: none;
+    margin-top: 2vw;
+    margin-left: 1vw;
+    color: #58c1cf;
+    font-weight: bold;
+    letter-spacing: .1vw;
+    font-size: .8vw;
 }
 
-.add {
-  height: 3.5vw;
-  width: 13vw;
-  margin-top: 3vw;
-  letter-spacing: .1vw;
-  font-size: 0.9vw;
-  text-align: center;
-  background: #001f1f;
-  color: #58c1cf;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  box-shadow: 0 0 10px #58c1cf;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.add:hover {
-  background-color: #58c1cf;
-  color: #001f1f;
-  box-shadow: 0 0 15px #58c1cf;
-}
-
-.edit {
-  transform: translateY(5vw);
-  height: 3.5vw;
-  width: 13vw;
-  margin-top: 4vw;
-  margin-left: -13vw;
-  letter-spacing: .1vw;
-  font-size: 0.9vw;
-  text-align: center;
-  background: #001f1f;
-  color: #58c1cf;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  box-shadow: 0 0 10px #58c1cf;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.edit:hover {
-  background-color: #58c1cf;
-  color: #001f1f;
-  box-shadow: 0 0 15px #58c1cf;
-}
-
-/* =============------------- Calendar ============================================*/
-
-.calendar {
-  transform: translateY(17.5vw);
-  float: left;
-  margin-left: -15.1vw;
-  margin-top: 2vw;
-  width: 15vw;
-  height: 12vw;
-  background: rgba(0, 255, 200, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.calendar-container {
-      background: #112233;
-      padding: 2vw;
-      height: 12vw;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #00ffe0;
+.RESUME {
+      position: relative;
+      margin-left: -10vw;
+      transform: translateY(-3vw);
+      height: 3vw;
+      width: 10vw;
+      font-size: 0.9vw;
       text-align: center;
-    }
-
-    .date {
-      font-size: 1.3vw;
-      color: #a8f4ff;
-      margin-bottom: 1vw;
-    }
-
-    .clock {
-      font-size: 1.5vw;
+      background: #001f1f;
+      color: #58c1cf;
+      padding: 15px;
+      border-radius: 10px;
       font-weight: bold;
-      color: #03e9ce;
-      text-shadow: 0 0 10px #00ffe0;
+      box-shadow: 0 0 10px #58c1cf;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
+    .RESUME:hover {
+      background-color: #58c1cf;
+      color: #001f1f;
+      box-shadow: 0 0 15px #58c1cf;
+    }
 
 /* =============------------- footer ============================================*/
 
@@ -315,7 +300,7 @@
     font-size: .6vw;
     text-align: center;
     color: #58c1cf;
-    transform: translateY(2.5vw);
+    transform: translateY(20.5vw);
     margin-left: 30vw;
 }
 
@@ -334,13 +319,13 @@
             <a  href="index.html">HOME</a>
         </div>
         <div class="nav-button">
-            <a  href="ABOUT.html">ABOUT</a>
+            <a class="active" href="#ABOUT.html">ABOUT</a>
         </div>
         <div class="nav-button">
-            <a class="active" href="#PROJECT.html">PROJECT</a>
+            <a href="PROJECT.html">PROJECT</a>
         </div>
         <div class="nav-button">
-            <a  href="CONTACT.HTML">CONTACT</a>
+            <a href="CONTACT.html">CONTACT</a>
         </div>
     </div>
         <div class="nav-button" style="width: 9vw; margin-top: 1vw;">
@@ -349,69 +334,57 @@
   </div>
 
 
-        <div class="add-project">
-          <div>
-          <button class="add">
-            <i class="bi bi-plus-circle"></i>Add Project
-          </button>
-          </div>
-          <div>
-          <button class="edit">
-            <i class="bi bi-plus-circle"></i>edit Project
-          </button>
-          </div>
-        </div>
-
-    <div class="calendar">
-    <div class="calendar-container">
-    <div class="date" id="currentDate"></div>
-    <div class="clock" id="clock"></div>
+<div class="picture-container">
+  <div class="picture1">
+<img src="/Images/about.jpg">
   </div>
-
-  <script>
-  function updateClock() {
-    const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
-
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-
-    hours = hours % 12;
-    hours = hours ? hours : 12; 
-
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-  }
-
-  setInterval(updateClock, 1000);
-  updateClock(); // initial call
-</script>
-        </div>
-
-  <div class="project-container" >
+  <div class="picture2">
+<img src="/Images/personal.png">
+  </div>
+  <div class="picture3">
+<img src="/Images/about3.jpg">
+  </div>
+</div>
     <div class="box-container">
-
-        <div class="project">  
+        <div class="profile">
+          <div class="text-profile">
+            <p>First Name : Lance Ian
+            </p>
+            <p>Last Name : Barsaga
+            </p>
+            <p>Age : 21
+            </p>
+            <p>Gender : Male
+            </p>
+            <p>birthdate : September 7, 2003
+            </p>
+            <p>Height : 5'2
+            </p>
+            <p>Country : philippines
+            </p>
+          </div>    
         </div>
 
-        <div class="CONTACT">
-          <div class="contact-me">  
-          </div>
+        <div class="picture4">
+          <img src="/Images/about4.jpg">
         </div>
-       
-        <div class="CONTACT">
-          <div class="contact-me">  
-          </div>
+     
+        <a href="/Images/resume.pdf"target="_blank">
+        <button class="RESUME"><strong>RESUME</strong></button> </a>
+    
+        <div class="about">
+            <div class="about-me">
+                <h1 style="color: #58c1cf; font-size: 1.5vw; margin: 1vw;">ABOUT ME</h1>
+                <h2 style="color: #58c1cf; font-size: 1vw; margin: 1vw;">HEY THERE,<br>
+                IT'S NICE TO MEET YOU</h2>
+                <p>I am 21 years old and I live in 168 Purok-3 Silverio Compound Brgy. San Isidro in Paranaque City.<br> I'm a shy person and sometimes I don't have confidence, but I'll do my best to reach my dreams<br>
+        By the way, I graduated from high school and am currently in 2nd college in the bachelor in science of information technology at Olivarez College Paranaque. 
+        </p>
+        <p>My hobbies are listening to music because I also like to sing and my hobby is playing mobile games and I love playing volleyball</p>
+        <p>For my achievements, I got a certificate because of the seminars and training I participated in.<br> I am an officer in our area called a youth organization because here I had experience in our trainings on how to be calm in all situations especially that when there are disasters in our area.</p>
+            </div>
         </div>
-
-         <div class="CONTACT">
-          <div class="contact-me">  
-          </div>
-        </div>
-    </div> 
-  </div>
+    </div>
 
     <div class="footer">
         <div class="foot">

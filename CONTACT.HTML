@@ -12,28 +12,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   
   <style>
-::-webkit-scrollbar {
-  width: 1.2vw;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 25px;
-  box-shadow: inset 0 0 6px #58c1cf;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #58c1cf, #007bff);
-  border-radius: 10px;
-  box-shadow: 0 0 10px #58c1cf;
-  transition: background 0.3s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #58c1cf, #58c1cf);
-  box-shadow: 0 0 15px #58c1cf;
-}
-
     * {
       margin: 0;
       padding: 0;
@@ -125,23 +103,7 @@
       margin-left: -1vw;
   }
 /* =============------------- CONTACT US ============================================*/
-.project-container {
-  overflow: scroll;
-  overflow-x: hidden;
-  user-select: none;
-  transform: translateY(-.5vw);
-  float: left;
-  margin-left: 2vw;
-  margin-top: 2vw;
-  width: 70vw;
-  height: 30vw;
-  background: rgba(0, 255, 200, 0.144);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .box-container {
 
@@ -153,15 +115,15 @@
   padding: 20px;
 }
 
-.project {
+.contact-us {
   user-select: none;
   transform: translateY(-3.5vw);
   float: left;
   margin-left: 8vw;
   margin-top: 2vw;
-  width: 20vw;
-  height: 25vw;
-  background: rgba(0, 255, 200, 0.144);
+  width: 30vw;
+  height: 30vw;
+  background: rgba(2, 161, 127, 0.336);
   border-radius: 20px;
   box-shadow: 0 0 10px #00ffe0;
   display: flex;
@@ -169,6 +131,42 @@
   align-items: center;
 }
 
+.text-contact  {
+  margin-top: -3.5vw;
+margin-left: -1vw;
+  font-size: .8vw;
+  color: #d1d1d1;
+  text-align: center;
+  font-weight: bold;
+  text-align: left;
+}
+
+.text-contact p {
+  text-align: center;
+  letter-spacing: .1vw;
+  font-size: 1.2vw;
+}
+
+.socmed {
+  position: relative;
+  display: flex;
+  margin-top: 1vw;
+  margin-left: -1vw;
+}
+
+.socmed img {
+  width: 4.5vw;
+  height: 4.5vw;
+}
+
+.btn-icon {
+  margin-left: 6vw;
+}
+
+.socmed :hover{
+  transform: scale(1.1)
+  translateY(-1px);
+}
 
 
 /* =============------------- CONTACT ME ============================================*/
@@ -177,8 +175,8 @@
   float: left;
   margin-left: 2vw;
   margin-top: 2vw;
-  width: 15vw;
-  height: 20vw;
+  width: 49vw;
+  height: 30vw;
   background: rgba(0, 255, 200, 0.1);
   border-radius: 20px;
   box-shadow: 0 0 10px #00ffe0;
@@ -187,48 +185,55 @@
   align-items: center;
 }
 
-.project {
-    transform: translateY(-3.5vw);
-  float: left;
-  margin-left: .5vw;
-  margin-top: 2vw;
-  width: 15vw;
-  height: 20vw;
-  background: rgba(0, 255, 200, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.contact-me {
+    background-color: #234053;
+    width: 48vw;
+    height: 29vw;
+    border-radius: 20px;
 }
 
-/* =============------------- Add project ============================================*/
 
-.add-project {
-  transform: translateY(-.5vw);
-  float: left;
-  margin-left: 8.5vw;
-  margin-top: 2vw;
-  width: 15vw;
-  height: 16vw;
-  background: rgba(0, 255, 200, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  
+input[type="text"], input[type="email"], textarea {
+  border-radius: 7px;
+  padding: 10px;
+  width: 45vw;
+  height: 2.5vw;
+  margin-bottom: .5vw;
+  margin-left: 1vw;
+  margin-top: .5vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #00ffe0;
+  border: 2px solid #04a1a1;
+  transition: 0.3s ease;
 }
 
-.add {
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px #04a1a1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@keyframes glowBox {
+  0% {
+    box-shadow: 0 0 10px #04a1a1;
+  }
+  100% {
+    box-shadow: 0 0 20px #00ffe0, 0 0 40px #00ffe0;
+  }
+}
+
+.submit-btn {
+  position: relative;
   height: 3.5vw;
-  width: 13vw;
-  margin-top: 3vw;
-  letter-spacing: .1vw;
+  width: 8.5vw;
   font-size: 0.9vw;
+  float: right;
+  margin-right: 2vw;
+  letter-spacing: .1vw;
   text-align: center;
   background: #001f1f;
   color: #58c1cf;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   font-weight: bold;
   box-shadow: 0 0 10px #58c1cf;
@@ -236,76 +241,11 @@
   transition: 0.3s ease;
 }
 
-.add:hover {
+.submit-btn:hover {
   background-color: #58c1cf;
   color: #001f1f;
   box-shadow: 0 0 15px #58c1cf;
 }
-
-.edit {
-  transform: translateY(5vw);
-  height: 3.5vw;
-  width: 13vw;
-  margin-top: 4vw;
-  margin-left: -13vw;
-  letter-spacing: .1vw;
-  font-size: 0.9vw;
-  text-align: center;
-  background: #001f1f;
-  color: #58c1cf;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  box-shadow: 0 0 10px #58c1cf;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.edit:hover {
-  background-color: #58c1cf;
-  color: #001f1f;
-  box-shadow: 0 0 15px #58c1cf;
-}
-
-/* =============------------- Calendar ============================================*/
-
-.calendar {
-  transform: translateY(17.5vw);
-  float: left;
-  margin-left: -15.1vw;
-  margin-top: 2vw;
-  width: 15vw;
-  height: 12vw;
-  background: rgba(0, 255, 200, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.calendar-container {
-      background: #112233;
-      padding: 2vw;
-      height: 12vw;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #00ffe0;
-      text-align: center;
-    }
-
-    .date {
-      font-size: 1.3vw;
-      color: #a8f4ff;
-      margin-bottom: 1vw;
-    }
-
-    .clock {
-      font-size: 1.5vw;
-      font-weight: bold;
-      color: #03e9ce;
-      text-shadow: 0 0 10px #00ffe0;
-    }
-
 
 /* =============------------- footer ============================================*/
 
@@ -315,7 +255,7 @@
     font-size: .6vw;
     text-align: center;
     color: #58c1cf;
-    transform: translateY(2.5vw);
+    transform: translateY(34.5vw);
     margin-left: 30vw;
 }
 
@@ -337,10 +277,10 @@
             <a  href="ABOUT.html">ABOUT</a>
         </div>
         <div class="nav-button">
-            <a class="active" href="#PROJECT.html">PROJECT</a>
+            <a href="PROJECT.html">PROJECT</a>
         </div>
         <div class="nav-button">
-            <a  href="CONTACT.HTML">CONTACT</a>
+            <a class="active" href="#PROJECT.html">CONTACT</a>
         </div>
     </div>
         <div class="nav-button" style="width: 9vw; margin-top: 1vw;">
@@ -349,69 +289,59 @@
   </div>
 
 
-        <div class="add-project">
-          <div>
-          <button class="add">
-            <i class="bi bi-plus-circle"></i>Add Project
-          </button>
-          </div>
-          <div>
-          <button class="edit">
-            <i class="bi bi-plus-circle"></i>edit Project
-          </button>
-          </div>
-        </div>
 
-    <div class="calendar">
-    <div class="calendar-container">
-    <div class="date" id="currentDate"></div>
-    <div class="clock" id="clock"></div>
-  </div>
-
-  <script>
-  function updateClock() {
-    const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
-
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-
-    hours = hours % 12;
-    hours = hours ? hours : 12; 
-
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-  }
-
-  setInterval(updateClock, 1000);
-  updateClock(); // initial call
-</script>
-        </div>
-
-  <div class="project-container" >
     <div class="box-container">
+        <div class="contact-us">
+          <div class="text-contact">
+        <h1 style="text-align: center;">CONTACT US</h1>
+        <h2 style="text-align: center;"><u>LOCATION</u></h2>
+        <P>168 Purok-3 Silverio Compound <br>Brgy. San Isidro in Paranaque City.</P>
+    <div>
+        <h3 style="text-align: center;"><u>Contact Number</u></h3>
+        <p>09683668842</p>        
+    </div>
+        <div>
+            <h4 style="text-align: center;"><u>CONTACT US.</u></h4>
+        </div>
+            <div class="socmed">
+                <a href="https://www.facebook.com/lanceian07"target="_blank">
+                <button class="btn-icon"><img src="/icons/facebook.png"></i></button></a>
+                <a href="https://www.instagram.com/ian_barsaga/?next=%2F"target="_blank">
+                <button class="btn-icon"><img src="/icons/instagram.png"></i></button></a>
+                <a href="mailto:barsagalanceian@gmail.com? subject=Hey!"target="_blank">
+                <button class="btn-icon"><img src="/icons/email.png"></i></button></a>
+            </div>
+   
+    </div>
+          </div>    
 
-        <div class="project">  
-        </div>
+          
+<div class="CONTACT">
+  <div class="contact-me">
+    <form action="https://formsubmit.co/1f0e4a0bd02566b6de85da93f79f2a0a" method="POST" target="_blank">
+      <div style="text-align: center; padding-top: 1vw;">
+        <h2 style="color: #64d6e6; font-size: 2vw; letter-spacing: 2px;">Contact Me</h2>
+        <p style="color: #bbb; font-size: 1vw;">I'd love to hear from you!</p>
+      </div>
 
-        <div class="CONTACT">
-          <div class="contact-me">  
-          </div>
-        </div>
-       
-        <div class="CONTACT">
-          <div class="contact-me">  
-          </div>
-        </div>
+      <label for="Name" style="color: #64d6e6; margin-left: 1vw;">Full Name</label>
+      <input type="text" id="myInput" name="Name" placeholder="Enter your full name" required>
 
-         <div class="CONTACT">
-          <div class="contact-me">  
-          </div>
-        </div>
-    </div> 
+      <label for="email" style="color: #64d6e6; margin-left: 1vw;">Email</label>
+      <input type="email" name="Email" placeholder="Enter your email address" required>
+
+      <label for="Comment" style="color: #64d6e6; margin-left: 1vw;">Message</label>
+      <textarea style="height: 5vw;" name="Comment" placeholder="Write your message here..." required></textarea>
+
+      <div class="Submit">
+        <input class="submit-btn" type="submit" value="Send">
+        <input class="submit-btn" type="reset" value="Refresh">
+      </div>
+    </form>
   </div>
+</div>
+
+    </div>
 
     <div class="footer">
         <div class="foot">
