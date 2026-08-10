@@ -143,6 +143,19 @@
       line-height: 1.55;
     }
 
+    /* ERROR MESSAGE STYLING */
+    .error-msg {
+      display: none;
+      background: rgba(255, 84, 112, 0.15);
+      border: 1px solid rgba(255, 84, 112, 0.5);
+      color: #ff859b;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
     /* FORM STYLES */
     .input-group {
       margin-bottom: 1.25rem;
@@ -357,6 +370,11 @@
       <p>Log in to access your portal</p>
     </div>
 
+    <!-- ERROR MESSAGE BOX -->
+    <div id="errorMsg" class="error-msg">
+      Invalid username or password!
+    </div>
+
     <form id="loginForm">
       <div class="input-group">
         <label for="username">Username / Email</label>
@@ -382,22 +400,33 @@
 
     <!-- TIP / INFORMATION BOX -->
     <div class="tip-box">
-      <p>Tip: You can use any username and password for this demo page.</p>
-      <p>Guest mode gives you access without signing in.</p>
+      <p>Tip: Use <strong>lanceian</strong> / <strong>090703</strong> to sign in.</p>
+      <p>Guest mode gives you direct access as guest.</p>
     </div>
   </div>
 
   <script>
-    // FORM SUBMISSION HANDLER
+    // FORM SUBMISSION HANDLER WITH VALIDATION
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const username = document.getElementById('username').value;
-      alert('Logging in as: ' + username);
+      
+      const usernameInput = document.getElementById('username').value.trim();
+      const passwordInput = document.getElementById('password').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      // Credentials Check
+      if (usernameInput === 'lanceian' && passwordInput === '090703') {
+        errorMsg.style.display = 'none';
+        window.location.href = 'dashboard.html';
+      } else {
+        errorMsg.style.display = 'block';
+        errorMsg.innerText = 'Incorrect username or password!';
+      }
     });
 
     // GUEST ACCESS HANDLER
     document.getElementById('guestBtn').addEventListener('click', function() {
-      alert('Proceeding as Guest...');
+      window.location.href = 'dashboard.html';
     });
   </script>
 </body>

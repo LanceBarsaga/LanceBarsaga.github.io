@@ -62,11 +62,17 @@
       background: rgba(8, 12, 20, 0.6);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0, 255, 224, 0.2);
+      position: relative;
+      z-index: 100;
     }
 
-    .avatar-box {
+    /* AVATAR + HAMBURGER CONTAINER */
+    .brand-box {
       display: flex;
       align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      z-index: 2;
     }
 
     .avatar-box img {
@@ -76,12 +82,38 @@
       border: 2px solid var(--cyan-glow);
       box-shadow: 0 0 15px rgba(0, 255, 224, 0.6);
       object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .navbar-links {
+    .avatar-box:hover img {
+      transform: scale(1.08);
+      box-shadow: 0 0 22px var(--cyan-glow);
+    }
+
+    /* HAMBURGER ICON (Visible lang sa Mobile) */
+    .hamburger-icon {
+      display: none;
+      font-size: 1.4rem;
+      color: var(--cyan-glow);
+      transition: transform 0.3s ease;
+    }
+
+    /* DESKTOP NAVIGATION STRUCTURE & CENTERING */
+    .nav-content-wrapper {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    @media (min-width: 993px) {
+      .navbar-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+      }
     }
 
     .nav-btn {
@@ -97,6 +129,7 @@
       font-weight: 700;
       transition: all 0.3s ease;
       box-shadow: 0 0 8px rgba(0, 255, 224, 0.2);
+      text-align: center;
     }
 
     .nav-btn:hover, .nav-btn.active {
@@ -118,12 +151,60 @@
       font-weight: bold;
       transition: all 0.3s ease;
       cursor: pointer;
+      margin-left: auto;
+      text-align: center;
     }
 
     .close-btn:hover {
       background: #ff4747;
       color: #fff;
       box-shadow: 0 0 15px rgba(255, 71, 71, 0.6);
+    }
+
+    /* MOBILE LAYOUT ADJUSTMENTS */
+    @media (max-width: 992px) {
+      .header-nav {
+        padding: 0.8rem 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .hamburger-icon {
+        display: block; /* Pinapakita ang hamburger icon sa mobile */
+      }
+
+      .nav-content-wrapper {
+        display: none; /* Tago muna by default */
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0, 255, 224, 0.2);
+      }
+
+      .nav-content-wrapper.active {
+        display: flex; /* Lalabas kapag cliniclick ang avatar o hamburger */
+      }
+
+      .navbar-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+      }
+
+      .nav-btn {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .close-btn {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        margin-left: 0;
+      }
     }
 
     /* MAIN CONTENT CONTAINER */
@@ -155,7 +236,7 @@
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 224, 0.05);
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly; /* Pantay ang hatid sa pagitan ng mga elements */
+      justify-content: space-evenly;
       text-align: center;
     }
 
@@ -193,7 +274,7 @@
       line-height: 1.4;
     }
 
-    /* SOCIAL MEDIA ICONS (PINALAKI) */
+    /* SOCIAL MEDIA ICONS */
     .social-links-wrapper {
       margin-top: 1rem;
     }
@@ -213,7 +294,7 @@
     }
 
     .socmed-btn {
-      width: 65px; /* Pinalaki ang laki ng button */
+      width: 65px;
       height: 65px;
       border-radius: 50%;
       background: var(--cyan-dark);
@@ -222,7 +303,7 @@
       align-items: center;
       justify-content: center;
       color: var(--cyan-glow);
-      font-size: 1.8rem; /* Pinalaki ang mismong icon */
+      font-size: 1.8rem;
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: 0 0 15px rgba(0, 255, 224, 0.3);
@@ -396,11 +477,6 @@
 
     /* RESPONSIVE LAYOUT */
     @media (max-width: 992px) {
-      .header-nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -414,20 +490,27 @@
 
   <!-- NAVIGATION BAR -->
   <header class="header-nav">
-    <div class="avatar-box">
-      <img src="/Images/avatar.png" alt="Lance Ian Avatar" onerror="this.src='https://via.placeholder.com/50'">
+    <!-- AVATAR + HAMBURGER BUTTON -->
+    <div class="brand-box" onclick="toggleMobileNav()">
+      <div class="avatar-box">
+        <img src="/Images/avatar.png" alt="Lance Ian Avatar" onerror="this.src='https://via.placeholder.com/50'">
+      </div>
+      <i class="bi bi-list hamburger-icon"></i>
     </div>
 
-    <nav class="navbar-links">
-      <a class="nav-btn" href="dashboard.html">HOME</a>
-      <a class="nav-btn" href="about.html">ABOUT</a>
-      <a class="nav-btn" href="project.html">PROJECT</a>
-      <a class="nav-btn active" href="#contact.html">CONTACT</a>
-    </nav>
+    <!-- NAVIGATION WRAPPER -->
+    <div class="nav-content-wrapper" id="navContent">
+      <nav class="navbar-links">
+        <a class="nav-btn" href="dashboard.html">HOME</a>
+        <a class="nav-btn" href="about.html">ABOUT</a>
+        <a class="nav-btn" href="project.html">PROJECT</a>
+        <a class="nav-btn active" href="#contact.html">CONTACT</a>
+      </nav>
 
-    <a href="#" class="close-btn">
-      <i class="bi bi-box-arrow-left me-1"></i> CLOSE
-    </a>
+      <a href="index.html" class="close-btn">
+        <i class="bi bi-box-arrow-left me-1"></i> CLOSE
+      </a>
+    </div>
   </header>
 
   <!-- MAIN CONTAINER -->
@@ -507,6 +590,14 @@
       <a href="mailto:barsagalanceian@gmail.com?subject=Hey!">barsagalanceian@gmail.com</a>
     </p>
   </footer>
+
+  <!-- MOBILE NAVIGATION JS -->
+  <script>
+    function toggleMobileNav() {
+      const navContent = document.getElementById('navContent');
+      navContent.classList.toggle('active');
+    }
+  </script>
 
   <!-- BOOTSTRAP JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
