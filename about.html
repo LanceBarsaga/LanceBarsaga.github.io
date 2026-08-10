@@ -66,7 +66,6 @@
       z-index: 100;
     }
 
-    /* AVATAR + HAMBURGER CONTAINER */
     .brand-box {
       display: flex;
       align-items: center;
@@ -90,7 +89,6 @@
       box-shadow: 0 0 22px var(--cyan-glow);
     }
 
-    /* HAMBURGER ICON (Visible lang sa Mobile) */
     .hamburger-icon {
       display: none;
       font-size: 1.4rem;
@@ -98,7 +96,6 @@
       transition: transform 0.3s ease;
     }
 
-    /* DESKTOP NAVIGATION STRUCTURE */
     .nav-content-wrapper {
       display: flex;
       align-items: center;
@@ -161,7 +158,6 @@
       box-shadow: 0 0 15px rgba(255, 71, 71, 0.6);
     }
 
-    /* MOBILE LAYOUT ADJUSTMENTS */
     @media (max-width: 992px) {
       .header-nav {
         padding: 0.8rem 1.5rem;
@@ -169,11 +165,11 @@
       }
 
       .hamburger-icon {
-        display: block; /* Ipakita ang hamburger sa mobile */
+        display: block;
       }
 
       .nav-content-wrapper {
-        display: none; /* Hidden by default */
+        display: none;
         flex-direction: column;
         gap: 0.8rem;
         width: 100%;
@@ -183,7 +179,7 @@
       }
 
       .nav-content-wrapper.active {
-        display: flex; /* Lalabas kapag cliniclick ang avatar o hamburger */
+        display: flex;
       }
 
       .navbar-links {
@@ -226,45 +222,96 @@
       align-items: stretch;
     }
 
-    /* LEFT SECTION */
     .left-section {
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
     }
 
-    /* TOP 3 PICTURES MATRIX */
+    /* PHOTO MATRIX & EDITABLE PHOTO CARDS */
     .photo-matrix {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.8rem;
     }
 
-    .photo-card {
+    .photo-card, .photo-card-tall {
+      position: relative;
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 255, 224, 0.3);
       border-radius: 12px;
       padding: 0.4rem;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      height: 155px;
       transition: transform 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
     }
 
-    .photo-card:hover {
+    .photo-card {
+      height: 155px;
+    }
+
+    .photo-card-tall {
+      flex: 1;
+      height: 250px;
+    }
+
+    .photo-card:hover, .photo-card-tall:hover {
       transform: translateY(-3px);
       border-color: var(--cyan-glow);
       box-shadow: 0 0 15px rgba(0, 255, 224, 0.4);
     }
 
-    .photo-card img {
+    .photo-card img, .photo-card-tall img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 8px;
     }
 
-    /* LOWER DETAILS & PHOTO 4 ROW */
+    /* EDIT BUTTON STYLING */
+    .edit-btn {
+      position: absolute;
+      background: rgba(0, 31, 36, 0.85);
+      border: 1px solid var(--cyan-glow);
+      color: var(--cyan-glow);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      box-shadow: 0 0 10px rgba(0, 255, 224, 0.3);
+      z-index: 10;
+    }
+
+    .edit-btn:hover {
+      background: var(--cyan-glow);
+      color: #041014;
+      box-shadow: 0 0 15px var(--cyan-glow);
+      transform: scale(1.1);
+    }
+
+    .img-edit-btn {
+      bottom: 8px;
+      right: 8px;
+    }
+
+    .profile-edit-btn {
+      bottom: 12px;
+      right: 12px;
+    }
+
+    .about-edit-btn {
+      top: 15px;
+      right: 15px;
+    }
+
+    /* DETAILS ROW */
     .details-row {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -272,34 +319,46 @@
       flex: 1;
     }
 
+    /* QUICK DETAILS CARD - IBINALIK ANG MALAKING FONT SIZE */
     .profile-card {
+      position: relative;
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 255, 224, 0.3);
       border-radius: 15px;
-      padding: 0.8rem 1rem;
+      padding: 1.2rem 1.2rem 1.5rem 1.2rem;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: space-between;
       height: 100%;
       box-sizing: border-box;
       overflow: hidden;
     }
 
+    .profile-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
     .profile-card p {
       margin: 0;
-      color: #b0eafd;
+      color: #e0f7fc;
       font-weight: 600;
       letter-spacing: 0.5px;
-      line-height: 1.2;
+      font-size: 1.15rem; /* MALAKI NA ULIT ANG TEXT */
+      line-height: 1.3;
       word-wrap: break-word;
     }
 
     .profile-card p strong {
       font-family: var(--font-heading);
       color: var(--cyan-glow);
+      font-size: 1.1rem; /* MALAKI NA ULIT ANG LABELS */
       margin-right: 6px;
+      letter-spacing: 1px;
     }
 
     .resume-and-photo4 {
@@ -332,26 +391,9 @@
       box-shadow: 0 0 18px var(--cyan-glow);
     }
 
-    .photo-card-tall {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 255, 224, 0.3);
-      border-radius: 12px;
-      padding: 0.4rem;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      flex: 1;
-      height: 250px;
-    }
-
-    .photo-card-tall img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
     /* RIGHT SIDE: ABOUT MAIN CARD */
     .about-main-card {
+      position: relative;
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 255, 224, 0.3);
@@ -369,6 +411,7 @@
       border-bottom: 1px solid rgba(0, 255, 224, 0.2);
       padding-bottom: 0.5rem;
       margin-bottom: 0.8rem;
+      padding-right: 2.5rem;
     }
 
     .about-title-box h1 {
@@ -393,7 +436,7 @@
       color: #d1f7ff;
       font-weight: 500;
       line-height: 1.4;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -406,6 +449,47 @@
 
     .about-content-text p:last-child {
       margin-bottom: 0;
+    }
+
+    [contenteditable="true"] {
+      outline: 2px dashed var(--cyan-glow) !important;
+      border-radius: 6px;
+      padding: 4px;
+      background: rgba(0, 255, 224, 0.05);
+    }
+
+    /* MODAL STYLING FOR IMAGES */
+    .modal-content {
+      background: #080c14;
+      border: 1px solid var(--cyan-glow);
+      box-shadow: 0 0 25px rgba(0, 255, 224, 0.3);
+      color: #e0f7fc;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid rgba(0, 255, 224, 0.2);
+      font-family: var(--font-heading);
+    }
+
+    .modal-header .btn-close {
+      filter: invert(1);
+    }
+
+    .image-preview-box {
+      border: 1px dashed rgba(0, 255, 224, 0.4);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      background: rgba(0, 31, 36, 0.3);
+    }
+
+    .image-preview-box img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border: 1px solid rgba(0, 255, 224, 0.2);
     }
 
     /* COMPACT FOOTER WITH MARQUEE */
@@ -445,7 +529,6 @@
       text-decoration: underline;
     }
 
-    /* RESPONSIVE LAYOUT */
     @media (max-width: 992px) {
       .about-grid {
         grid-template-columns: 1fr;
@@ -466,14 +549,13 @@
     }
   </style>
 </head>
-<body onload="initDynamicSizing()">
+<body onload="initPage()">
 
   <!-- BACKGROUND OVERLAY -->
   <div class="bg-wrapper"></div>
 
   <!-- NAVIGATION BAR -->
   <header class="header-nav">
-    <!-- AVATAR + HAMBURGER BUTTON -->
     <div class="brand-box" onclick="toggleMobileNav()">
       <div class="avatar-box">
         <img src="/Images/avatar.png" alt="Lance Ian Avatar" onerror="this.src='https://via.placeholder.com/50'">
@@ -481,7 +563,6 @@
       <i class="bi bi-list hamburger-icon"></i>
     </div>
 
-    <!-- NAVIGATION WRAPPER -->
     <div class="nav-content-wrapper" id="navContent">
       <nav class="navbar-links">
         <a class="nav-btn" href="dashboard.html">HOME</a>
@@ -505,14 +586,17 @@
         
         <!-- TOP 3 PICTURES MATRIX -->
         <div class="photo-matrix">
-          <div class="photo-card">
-            <img src="/Images/about.jpg" alt="About Photo 1" onerror="this.src='https://via.placeholder.com/150'">
+          <div class="photo-card" onclick="openImageModal()">
+            <img id="aboutImg0" src="/Images/about.jpg" alt="About Photo 1" onerror="this.src='https://via.placeholder.com/150'">
+            <button class="edit-btn img-edit-btn"><i class="bi bi-pencil-fill"></i></button>
           </div>
-          <div class="photo-card">
-            <img src="/Images/personal.png" alt="About Photo 2" onerror="this.src='https://via.placeholder.com/150'">
+          <div class="photo-card" onclick="openImageModal()">
+            <img id="aboutImg1" src="/Images/personal.png" alt="About Photo 2" onerror="this.src='https://via.placeholder.com/150'">
+            <button class="edit-btn img-edit-btn"><i class="bi bi-pencil-fill"></i></button>
           </div>
-          <div class="photo-card">
-            <img src="/Images/about3.jpg" alt="About Photo 3" onerror="this.src='https://via.placeholder.com/150'">
+          <div class="photo-card" onclick="openImageModal()">
+            <img id="aboutImg2" src="/Images/about3.jpg" alt="About Photo 3" onerror="this.src='https://via.placeholder.com/150'">
+            <button class="edit-btn img-edit-btn"><i class="bi bi-pencil-fill"></i></button>
           </div>
         </div>
 
@@ -520,13 +604,18 @@
         <div class="details-row">
           <!-- QUICK DETAILS CARD -->
           <div class="profile-card" id="profileCard">
-            <p><strong>FIRST NAME:</strong> Lance Ian</p>
-            <p><strong>LAST NAME:</strong> Barsaga</p>
-            <p><strong>AGE:</strong> 21</p>
-            <p><strong>GENDER:</strong> Male</p>
-            <p><strong>BIRTHDATE:</strong> Sept 7, 2003</p>
-            <p><strong>HEIGHT:</strong> 5'2"</p>
-            <p><strong>COUNTRY:</strong> Philippines</p>
+            <div class="profile-card-content" id="editableProfileText">
+              <p><strong>FIRST NAME:</strong> Lance Ian</p>
+              <p><strong>LAST NAME:</strong> Barsaga</p>
+              <p><strong>AGE:</strong> 21</p>
+              <p><strong>GENDER:</strong> Male</p>
+              <p><strong>BIRTHDATE:</strong> Sept 7, 2003</p>
+              <p><strong>HEIGHT:</strong> 5'2"</p>
+              <p><strong>COUNTRY:</strong> Philippines</p>
+            </div>
+            <button class="edit-btn profile-edit-btn" id="profileEditBtn" onclick="toggleTextEdit('editableProfileText', 'profileEditBtn', 'about_profile_data')">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
           </div>
 
           <!-- RESUME & 4TH PHOTO CARD -->
@@ -534,8 +623,9 @@
             <a href="/Images/resume.pdf" target="_blank" class="resume-btn">
               <i class="bi bi-file-earmark-person me-1"></i> RESUME
             </a>
-            <div class="photo-card-tall">
-              <img src="/Images/about4.jpg" alt="About Photo 4" onerror="this.src='https://via.placeholder.com/150'">
+            <div class="photo-card-tall" onclick="openImageModal()">
+              <img id="aboutImg3" src="/Images/about4.jpg" alt="About Photo 4" onerror="this.src='https://via.placeholder.com/150'">
+              <button class="edit-btn img-edit-btn"><i class="bi bi-pencil-fill"></i></button>
             </div>
           </div>
         </div>
@@ -544,6 +634,10 @@
 
       <!-- RIGHT SIDE: ABOUT ME MAIN TEXT CARD -->
       <div class="about-main-card" id="aboutContainer">
+        <button class="edit-btn about-edit-btn" id="aboutTextEditBtn" onclick="toggleTextEdit('autoFitAboutText', 'aboutTextEditBtn', 'about_text_data')">
+          <i class="bi bi-pencil-fill"></i>
+        </button>
+
         <div class="about-title-box">
           <h1>ABOUT ME</h1>
           <h2>HEY THERE, IT'S NICE TO MEET YOU!</h2>
@@ -568,6 +662,58 @@
     </div>
   </main>
 
+  <!-- IMAGE MANAGER MODAL (POPUP) -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel" style="color: var(--cyan-glow);">
+            <i class="bi bi-images me-2"></i>Edit About Me Pictures
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-3 col-6">
+              <div class="image-preview-box">
+                <label class="form-label fw-bold text-info">Photo 1</label>
+                <img id="modalPreview0" src="" onerror="this.src='https://via.placeholder.com/150'">
+                <input type="file" class="form-control form-control-sm bg-dark text-light border-secondary" accept="image/*" onchange="previewImage(event, 0)">
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="image-preview-box">
+                <label class="form-label fw-bold text-info">Photo 2</label>
+                <img id="modalPreview1" src="" onerror="this.src='https://via.placeholder.com/150'">
+                <input type="file" class="form-control form-control-sm bg-dark text-light border-secondary" accept="image/*" onchange="previewImage(event, 1)">
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="image-preview-box">
+                <label class="form-label fw-bold text-info">Photo 3</label>
+                <img id="modalPreview2" src="" onerror="this.src='https://via.placeholder.com/150'">
+                <input type="file" class="form-control form-control-sm bg-dark text-light border-secondary" accept="image/*" onchange="previewImage(event, 2)">
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="image-preview-box">
+                <label class="form-label fw-bold text-info">Photo 4</label>
+                <img id="modalPreview3" src="" onerror="this.src='https://via.placeholder.com/150'">
+                <input type="file" class="form-control form-control-sm bg-dark text-light border-secondary" accept="image/*" onchange="previewImage(event, 3)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info btn-sm fw-bold" onclick="saveNewImages()">
+            <i class="bi bi-check-circle-fill me-1"></i> Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <marquee scrollamount="6">THANK YOU FOR VISITING MY PERSONAL WEBSITE. HAVE A NICE DAY!</marquee>
@@ -585,52 +731,106 @@
       navContent.classList.toggle('active');
     }
 
-    /* DYNAMIC AUTO-FIT SCRIPT */
-    function adjustProfileCardFill() {
-      const card = document.getElementById('profileCard');
-      if (!card || window.innerWidth <= 992) return;
+    /* DEFAULT PICTURE PATHS */
+    const defaultAboutImages = [
+      "/Images/about.jpg",
+      "/Images/personal.png",
+      "/Images/about3.jpg",
+      "/Images/about4.jpg"
+    ];
 
-      const paragraphs = card.querySelectorAll('p');
-      const strongs = card.querySelectorAll('p strong');
+    let currentAboutImages = [];
+    let tempAboutImages = [];
 
-      let minFontSize = 10;
-      let maxFontSize = 16;
-      let currentFont = maxFontSize;
+    /* LOCALSTORAGE DATA LOADING */
+    function loadSavedContent() {
+      // Load saved texts
+      const savedProfile = localStorage.getItem('about_profile_data');
+      const savedAboutText = localStorage.getItem('about_text_data');
+      
+      if (savedProfile) {
+        document.getElementById('editableProfileText').innerHTML = savedProfile;
+      }
+      if (savedAboutText) {
+        document.getElementById('autoFitAboutText').innerHTML = savedAboutText;
+      }
 
-      paragraphs.forEach(p => p.style.fontSize = currentFont + 'px');
-      strongs.forEach(s => s.style.fontSize = (currentFont * 0.8) + 'px');
+      // Load saved images
+      const savedImages = localStorage.getItem('about_images_data');
+      if (savedImages) {
+        currentAboutImages = JSON.parse(savedImages);
+      } else {
+        currentAboutImages = [...defaultAboutImages];
+      }
 
-      while (card.scrollHeight > card.clientHeight && currentFont > minFontSize) {
-        currentFont -= 0.5;
-        paragraphs.forEach(p => p.style.fontSize = currentFont + 'px');
-        strongs.forEach(s => s.style.fontSize = (currentFont * 0.8) + 'px');
+      // Apply images to tags
+      for (let i = 0; i < 4; i++) {
+        document.getElementById(`aboutImg${i}`).src = currentAboutImages[i];
       }
     }
 
-    function adjustAboutFontSize() {
-      const container = document.getElementById('aboutContainer');
-      const text = document.getElementById('autoFitAboutText');
+    /* TOGGLE EDIT & PERMANENT SAVE FOR TEXT */
+    function toggleTextEdit(targetId, btnId, storageKey) {
+      const targetEl = document.getElementById(targetId);
+      const btn = document.getElementById(btnId);
+      const isEditable = targetEl.getAttribute('contenteditable') === 'true';
 
-      if (!container || !text || window.innerWidth <= 992) return;
+      if (!isEditable) {
+        targetEl.setAttribute('contenteditable', 'true');
+        targetEl.focus();
+        btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+        btn.style.background = '#00ffe0';
+        btn.style.color = '#041014';
+      } else {
+        targetEl.setAttribute('contenteditable', 'false');
+        btn.innerHTML = '<i class="bi bi-pencil-fill"></i>';
+        btn.style.background = 'rgba(0, 31, 36, 0.85)';
+        btn.style.color = '#00ffe0';
 
-      let minSize = 11;
-      let maxSize = 16;
-      let currentSize = maxSize;
-
-      text.style.fontSize = currentSize + 'px';
-
-      while (text.scrollHeight > (container.clientHeight - 80) && currentSize > minSize) {
-        currentSize -= 0.3;
-        text.style.fontSize = currentSize + 'px';
+        // Permanent save sa LocalStorage
+        localStorage.setItem(storageKey, targetEl.innerHTML);
       }
     }
 
-    function initDynamicSizing() {
-      adjustProfileCardFill();
-      adjustAboutFontSize();
+    /* IMAGE MODAL & PREVIEW LOGIC */
+    function openImageModal() {
+      tempAboutImages = [...currentAboutImages];
+      for (let i = 0; i < 4; i++) {
+        document.getElementById(`modalPreview${i}`).src = tempAboutImages[i];
+      }
+      const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+      imageModal.show();
     }
 
-    window.addEventListener('resize', initDynamicSizing);
+    function previewImage(event, index) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const base64Img = e.target.result;
+          tempAboutImages[index] = base64Img;
+          document.getElementById(`modalPreview${index}`).src = base64Img;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function saveNewImages() {
+      currentAboutImages = [...tempAboutImages];
+      localStorage.setItem('about_images_data', JSON.stringify(currentAboutImages));
+
+      for (let i = 0; i < 4; i++) {
+        document.getElementById(`aboutImg${i}`).src = currentAboutImages[i];
+      }
+
+      const modalElement = document.getElementById('imageModal');
+      const modalInstance = bootstrap.Modal.getInstance(modalElement);
+      if (modalInstance) modalInstance.hide();
+    }
+
+    function initPage() {
+      loadSavedContent();
+    }
   </script>
 
   <!-- BOOTSTRAP JS -->

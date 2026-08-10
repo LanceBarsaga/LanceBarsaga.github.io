@@ -94,12 +94,17 @@
       justify-content: space-between;
       width: 100%;
       margin-left: 1.5rem;
+      position: relative;
     }
 
+    /* CENTERED NAVIGATION LINKS */
     .navbar-links {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .nav-btn {
@@ -136,6 +141,7 @@
       font-weight: bold;
       transition: all 0.3s ease;
       cursor: pointer;
+      margin-left: auto;
     }
 
     .close-btn:hover {
@@ -144,16 +150,15 @@
       box-shadow: 0 0 15px rgba(255, 71, 71, 0.6);
     }
 
-    /* MOBILE / PORTRAIT TABLET HAMBURGER LOGIC */
+    /* MOBILE HAMBURGER LOGIC */
     @media (max-width: 992px) {
       .header-nav {
         padding: 0.8rem 1.5rem;
         flex-wrap: wrap;
       }
 
-      /* Indicator Icon sa tabi ng avatar para sa mobile */
       .avatar-box::after {
-        content: '\F479'; /* Bootstrap Chevron Down Icon */
+        content: '\F479';
         font-family: 'bootstrap-icons';
         color: var(--cyan-glow);
         font-size: 0.9rem;
@@ -166,7 +171,7 @@
       }
 
       .nav-content-wrapper {
-        display: none; /* Hidden by default sa mobile */
+        display: none;
         flex-direction: column;
         gap: 1rem;
         width: 100%;
@@ -177,10 +182,12 @@
       }
 
       .nav-content-wrapper.active {
-        display: flex; /* Show kapag pino-toggle ang avatar */
+        display: flex;
       }
 
       .navbar-links {
+        position: static;
+        transform: none;
         flex-direction: column;
         width: 100%;
         gap: 8px;
@@ -209,12 +216,13 @@
     }
 
     .intro-banner {
+      position: relative;
       font-family: var(--font-heading);
       font-size: 1.4rem;
       font-weight: 900;
       color: var(--cyan-glow);
       text-align: center;
-      padding: 0.7rem 1.5rem;
+      padding: 0.7rem 3rem 0.7rem 1.5rem;
       background: rgba(0, 255, 224, 0.08);
       border: 1px solid rgba(0, 255, 224, 0.3);
       border-radius: 15px;
@@ -234,19 +242,21 @@
     }
 
     .short-intro-card {
+      position: relative;
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 255, 224, 0.3);
       border-radius: 20px;
-      padding: 2rem;
+      padding: 2rem 2.5rem 2.5rem 2rem;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 224, 0.05);
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      overflow-y: auto;
       height: 450px;
     }
 
+    /* PINALAKI ANG FONT SIZE AT PINAPILIT GAMIT ANG !IMPORTANT */
     .short-intro-card p {
       color: #d1f7ff;
       font-weight: 500;
@@ -256,9 +266,61 @@
       width: 100%;
       text-align: left;
       word-wrap: break-word;
+      transition: font-size 0.3s ease;
+      font-size: 1.8rem !important;
     }
 
+    /* EDIT BUTTONS */
+    .edit-btn {
+      position: absolute;
+      background: rgba(0, 31, 36, 0.8);
+      border: 1px solid var(--cyan-glow);
+      color: var(--cyan-glow);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      box-shadow: 0 0 10px rgba(0, 255, 224, 0.3);
+      z-index: 10;
+    }
+
+    .edit-btn:hover {
+      background: var(--cyan-glow);
+      color: #041014;
+      box-shadow: 0 0 15px var(--cyan-glow);
+      transform: scale(1.1);
+    }
+
+    .banner-edit-btn {
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+    }
+
+    .banner-edit-btn:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .intro-edit-btn {
+      bottom: 15px;
+      right: 15px;
+    }
+
+    [contenteditable="true"] {
+      outline: 2px dashed var(--cyan-glow) !important;
+      border-radius: 6px;
+      padding: 6px;
+      background: rgba(0, 255, 224, 0.05);
+    }
+
+    /* PICTURE CARD STYLING */
     .picture-card {
+      position: relative;
       background: var(--card-bg);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 255, 224, 0.3);
@@ -269,6 +331,7 @@
       justify-content: center;
       align-items: center;
       height: 450px;
+      cursor: pointer;
     }
 
     .picture-card img {
@@ -277,9 +340,67 @@
       object-fit: cover;
       border-radius: 15px;
       border: 1px solid rgba(0, 255, 224, 0.2);
+      transition: transform 0.3s ease;
     }
 
-    /* COMPACT FOOTER WITH MARQUEE ON TOP */
+    .picture-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .picture-card .img-overlay-hint {
+      position: absolute;
+      bottom: 20px;
+      background: rgba(8, 12, 20, 0.85);
+      color: var(--cyan-glow);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: var(--font-heading);
+      border: 1px solid var(--cyan-glow);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .picture-card:hover .img-overlay-hint {
+      opacity: 1;
+    }
+
+    /* MODAL STYLES */
+    .modal-content {
+      background: #080c14;
+      border: 1px solid var(--cyan-glow);
+      box-shadow: 0 0 25px rgba(0, 255, 224, 0.3);
+      color: #e0f7fc;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid rgba(0, 255, 224, 0.2);
+      font-family: var(--font-heading);
+    }
+
+    .modal-header .btn-close {
+      filter: invert(1);
+    }
+
+    .image-preview-box {
+      border: 1px dashed rgba(0, 255, 224, 0.4);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      background: rgba(0, 31, 36, 0.3);
+    }
+
+    .image-preview-box img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border: 1px solid rgba(0, 255, 224, 0.2);
+    }
+
+    /* FOOTER */
     .footer {
       margin-top: auto;
       padding: 0.35rem 1rem;
@@ -335,12 +456,10 @@
 
   <!-- NAVIGATION BAR -->
   <header class="header-nav">
-    <!-- AVATAR BUTTON (HAMBURGER TOGGLER ON MOBILE) -->
     <div class="avatar-box" id="avatarToggle" onclick="toggleMobileNav()">
       <img src="/Images/avatar.png" alt="Lance Ian Avatar" onerror="this.src='https://via.placeholder.com/50'">
     </div>
 
-    <!-- WRAPPER FOR NAV LINKS & CLOSE BUTTON -->
     <div class="nav-content-wrapper" id="navContent">
       <nav class="navbar-links">
         <a class="nav-btn active" href="#dashboard.html">HOME</a>
@@ -357,24 +476,78 @@
 
   <!-- MAIN CONTAINER -->
   <main class="main-container">
+    
+    <!-- BANNER -->
     <div class="intro-banner">
-      Hello, I'm Lance Ian
+      <span id="bannerText">Hello, I'm Lance Ian</span>
+      <button class="edit-btn banner-edit-btn" id="bannerBtn" onclick="toggleEdit('bannerText', 'bannerBtn')">
+        <i class="bi bi-pencil-fill"></i>
+      </button>
     </div>
 
     <div class="content-grid">
-      <!-- ABOUT CARD -->
+      <!-- ABOUT CARD WITH DYNAMIC FONT SIZING -->
       <div class="short-intro-card" id="introContainer">
         <p id="autoFitText">
           I am <strong>Lance Ian D. Barsaga</strong>, a Bachelor of Science in Information Technology student at <strong>Olivarez College Parañaque</strong>. I am passionate about technology, coding, and design. I enjoy creating digital projects that combine functionality with creative visuals.
         </p>
+        <button class="edit-btn intro-edit-btn" id="introBtn" onclick="toggleEdit('autoFitText', 'introBtn')">
+          <i class="bi bi-pencil-fill"></i>
+        </button>
       </div>
 
-      <!-- PHOTO SLIDESHOW CARD -->
-      <div class="picture-card">
+      <!-- PHOTO SLIDESHOW CARD (CLICKABLE) -->
+      <div class="picture-card" onclick="openImageModal()">
         <img id="img" src="/Images/personal.jpg" alt="Lance Ian Photo" onerror="this.src='https://via.placeholder.com/300x450?text=Lance+Ian'">
+        <div class="img-overlay-hint"><i class="bi bi-pencil-square me-1"></i> Click to Change Pictures</div>
       </div>
     </div>
   </main>
+
+  <!-- IMAGE MANAGER MODAL (POPUP) -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel" style="color: var(--cyan-glow);">
+            <i class="bi bi-images me-2"></i>Edit Slideshow Pictures
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="image-preview-box">
+                <label class="form-label fw-bold text-info">Picture 1</label>
+                <img id="modalPreview0" src="" onerror="this.src='https://via.placeholder.com/150?text=Image+1'">
+                <input type="file" class="form-control form-control-sm bg-dark text-light border-secondary" accept="image/*" onchange="previewImage(event, 0)">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="image-preview-box">
+                <label class="form-label fw-bold text-info">Picture 2</label>
+                <img id="modalPreview1" src="" onerror="this.src='https://via.placeholder.com/150?text=Image+2'">
+                <input type="file" class="form-control form-control-sm bg-dark text-light border-secondary" accept="image/*" onchange="previewImage(event, 1)">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="image-preview-box">
+                <label class="form-label fw-bold text-info">Picture 3</label>
+                <img id="modalPreview2" src="" onerror="this.src='https://via.placeholder.com/150?text=Image+3'">
+                <input type="file" class="form-control form-control-sm bg-dark text-light border-secondary" accept="image/*" onchange="previewImage(event, 2)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info btn-sm fw-bold" onclick="saveNewImages()">
+            <i class="bi bi-check-circle-fill me-1"></i> Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -387,7 +560,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    /* MOBILE NAVIGATION TOGGLE SCRIPT */
+    /* MOBILE NAVIGATION TOGGLE */
     function toggleMobileNav() {
       const navContent = document.getElementById('navContent');
       const avatarToggle = document.getElementById('avatarToggle');
@@ -396,49 +569,139 @@
       avatarToggle.classList.toggle('open');
     }
 
-    /* SLIDESHOW SCRIPT */
-    var images = [
+    /* SLIDESHOW & IMAGE LOGIC WITH LOCALSTORAGE */
+    var defaultImages = [
       "/Images/personal1.jpg",
       "/Images/personal2.jpg",
       "/Images/personal.jpg"
     ];
+
+    var images = [];
+    var tempImages = [];
     var x = 0;
+    var timer;
+
+    function loadSavedImages() {
+      const saved = localStorage.getItem('portfolio_slideshow_images');
+      if (saved) {
+        images = JSON.parse(saved);
+      } else {
+        images = [...defaultImages];
+      }
+    }
 
     function displayNextImage() {
+      if (images.length === 0) return;
       x = (x === images.length - 1) ? 0 : x + 1;
       document.getElementById("img").src = images[x];
     }
 
     function startTimer() {
-      setInterval(displayNextImage, 3500);
+      if (timer) clearInterval(timer);
+      timer = setInterval(displayNextImage, 3500);
     }
 
-    /* AUTO-ADJUST FONT SIZE SCRIPT */
-    function adjustFontSize() {
-      const container = document.getElementById('introContainer');
-      const text = document.getElementById('autoFitText');
+    /* MODAL FUNCTIONALITIES FOR IMAGES */
+    function openImageModal() {
+      tempImages = [...images];
+      for (let i = 0; i < 3; i++) {
+        document.getElementById(`modalPreview${i}`).src = tempImages[i];
+      }
+      var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+      imageModal.show();
+    }
 
-      if (!container || !text) return;
+    function previewImage(event, index) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const base64Image = e.target.result;
+          tempImages[index] = base64Image;
+          document.getElementById(`modalPreview${index}`).src = base64Image;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
 
-      let minSize = 16;
-      let maxSize = 32;
+    function saveNewImages() {
+      images = [...tempImages];
+      localStorage.setItem('portfolio_slideshow_images', JSON.stringify(images));
+      
+      x = 0;
+      document.getElementById("img").src = images[0];
+      startTimer();
 
-      let currentSize = maxSize;
-      text.style.fontSize = currentSize + 'px';
+      const modalElement = document.getElementById('imageModal');
+      const modalInstance = bootstrap.Modal.getInstance(modalElement);
+      if (modalInstance) modalInstance.hide();
+    }
 
-      while (text.scrollHeight > container.clientHeight - 50 && currentSize > minSize) {
-        currentSize -= 0.5;
-        text.style.fontSize = currentSize + 'px';
+    /* TEXT EDIT & DYNAMIC FONT SIZING */
+    function loadSavedText() {
+      const savedBanner = localStorage.getItem('portfolio_bannerText');
+      const savedIntro = localStorage.getItem('portfolio_introText');
+
+      if (savedBanner) {
+        document.getElementById('bannerText').innerHTML = savedBanner;
+      }
+      if (savedIntro) {
+        document.getElementById('autoFitText').innerHTML = savedIntro;
+      }
+    }
+
+    function toggleEdit(elementId, btnId) {
+      const el = document.getElementById(elementId);
+      const btn = document.getElementById(btnId);
+      const isEditing = el.getAttribute('contenteditable') === 'true';
+
+      if (!isEditing) {
+        // EDIT MODE: Liliit sa 1.1rem para madaling mag-edit at makita buong card
+        el.setAttribute('contenteditable', 'true');
+        el.focus();
+        
+        if (elementId === 'autoFitText') {
+          el.style.setProperty('font-size', '1.1rem', 'important');
+        }
+
+        btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+        btn.style.background = '#00ffe0';
+        btn.style.color = '#041014';
+      } else {
+        // SAVE MODE: Babalik agad sa malaking 1.8rem
+        el.setAttribute('contenteditable', 'false');
+
+        if (elementId === 'autoFitText') {
+          el.style.setProperty('font-size', '1.8rem', 'important');
+        }
+
+        btn.innerHTML = '<i class="bi bi-pencil-fill"></i>';
+        btn.style.background = 'rgba(0, 31, 36, 0.8)';
+        btn.style.color = '#00ffe0';
+
+        // Permanent saving sa LocalStorage
+        if (elementId === 'bannerText') {
+          localStorage.setItem('portfolio_bannerText', el.innerHTML);
+        } else if (elementId === 'autoFitText') {
+          localStorage.setItem('portfolio_introText', el.innerHTML);
+        }
       }
     }
 
     /* INITIALIZE FUNCTIONS */
     function initPage() {
-      startTimer();
-      adjustFontSize();
-    }
+      loadSavedText();
+      loadSavedImages();
+      
+      const introText = document.getElementById('autoFitText');
+      if (introText) {
+        // Piliting maging 1.8rem ang laki ng font sa simula pa lang
+        introText.style.setProperty('font-size', '1.8rem', 'important');
+      }
 
-    window.addEventListener('resize', adjustFontSize);
+      document.getElementById("img").src = images[0];
+      startTimer();
+    }
   </script>
 
   <!-- BOOTSTRAP JS -->
