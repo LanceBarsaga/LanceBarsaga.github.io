@@ -1,0 +1,484 @@
+@import url('https://fonts.cdnfonts.com/css/techno-board');
+* {box-sizing: border-box;}
+
+html ::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-image: url(/image/bgg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vw;
+  height: 6.3vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  }
+
+body {
+  margin: 0;
+  font-family: "Techno Board", Courier;
+}
+
+.header {
+  overflow: hidden;
+  padding: 1.5vw 1vw;
+  width: 100%;
+  height: 6.3vw;
+  animation: 1s ease-out 0s 1 slideInLeft;
+}
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.header a {
+  float: left;
+  color: #6be2e2;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 1.3vw;
+  line-height: 1.3vw;
+  border-radius: 0.6vw;
+  border: 2px solid gray;
+  font-family: "Techno Board", Courier;
+  
+}
+
+.Avatar {
+background-image: url(/Images/avatar.png);
+border-radius: 10vw;
+width: 5vw;
+height: 5vw;
+background-size: cover;
+margin-left: 2%;
+transform: translateY(-0.8vw);
+}
+
+.header a:hover {
+  background-color: #1b3047e3;
+  color: rgb(241, 239, 239);
+}
+
+.header a.active {
+  background-color: #1b3047e3;
+  color: #6be2e2;
+}
+
+.header-right {
+  transform: translateY(0.3vw);
+}
+
+.header-right a:link {
+  float: right;
+  margin-left: 0.3vw;
+}
+
+.footer {
+  background-image: url(/image/footer.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 6vw;
+}  
+.foot {
+  color: #64d6e6;
+  text-align: center;
+  width: 40vw;
+  margin-left: 30vw;
+}
+
+
+/******S phone*******/
+@media only screen and (orientation:portrait) {
+  
+
+  body {
+    background-image: url(/image/bgs.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vw;
+  }
+  .header {
+    padding: 1.5vw 1vw;
+    width: 100%;
+    height: 34vw;
+  }
+  .header a {
+    float: left;
+    color: #6be2e2;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    margin-right: 1vw;
+    font-size: 2.8vw;
+    line-height: 0.1vw;
+    margin-top: 0.7vw;
+    font-family: "Techno Board", Courier;
+    border-radius: 0.5vw;
+    border: 2px solid gray;
+  }
+  
+  .Avatar {
+  background-image: url(/Images/avatar.png);
+  width: 10.5vw;
+  height: 10.5vw;
+  background-size: cover;
+  transform: translateY(17vw);
+  }
+  
+  .header a:hover {
+    background-color: #1b3047e3;
+    color: rgb(241, 239, 239);
+  }
+  
+  .header a.active {
+    background-color: #1b3047e3;
+    color: #6be2e2;
+  }
+  .header-right {
+    transform: translateY(19vw);
+  }
+  
+  .header-right a:link {
+    float: right;
+    margin-left: 2vw;
+  }
+  
+  .footer {
+    position: fixed;
+    transform: translateY(2vw);
+    width: 100vw;
+    height: 27vw;
+    
+  }
+  .foot {
+    float: right;
+    font-size: 2.5vw;
+    transform: translateY(4vw);
+    width: 100vw;
+  }
+}
+
+/********M phone******/
+@media only screen and (min-width:321px) and (max-width:375px) {
+  
+  .body {
+    background-image: url(/image/bg2S.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vw;
+  }
+  .header {
+    padding: 1.5vw 1vw;
+    width: 100%;
+    height: 26vw;
+  }
+  .header a {
+    float: left;
+    color: #6be2e2;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    margin-right: 1vw;
+    font-size: 3.2vw;
+    line-height: 0.1vw;
+    margin-top: 0.7vw;
+    font-family: "Techno Board", Courier;
+    border-radius: 0.5vw;
+    border: 2px solid gray;
+  }
+  
+  .Avatar {
+  background-image: url(/Images/avatar.png);
+  width: 10vw;
+  height: 10vw;
+  background-size: cover;
+  transform: translateY(12vw);
+  }
+  
+  .header a:hover {
+    background-color: #1b3047e3;
+    color: rgb(241, 239, 239);
+  }
+  
+  .header a.active {
+    background-color: #1b3047e3;
+    color: #6be2e2;
+  }
+  .header-right {
+    transform: translateY(16vw);
+  }
+  
+  .header-right a:link {
+    float: right;
+    margin-left: 2vw;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 16vw;
+    transform: translateY(-0.1vw);
+    
+  }
+  .foot {
+    float: right;
+    font-size: 2.2vw;
+    transform: translateY(-1vw);
+    width: 99vw;
+  }
+}
+
+/******L phone*******/
+@media only screen and (min-width:376px) and (max-width:425px) {
+  
+  .body {
+    background-image: url(/image/bg2S.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vw;
+  }
+  .header {
+    padding: 1.5vw 1vw;
+    width: 100%;
+    height: 25vw;
+  }
+  .header a {
+    float: left;
+    color: #6be2e2;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 3.5vw;
+    line-height: 0.1vw;
+    margin-top: 0.7vw;
+    font-family: "Techno Board", Courier;
+    border-radius: 0.5vw;
+    border: 2px solid gray;
+  }
+  
+  .Avatar {
+  background-image: url(/Images/avatar.png);
+  width: 11vw;
+  height: 11vw;
+  background-size: cover;
+  transform: translateY(12vw);
+  }
+  
+  .header a:hover {
+    background-color: #1b3047e3;
+    color: rgb(241, 239, 239);
+  }
+  
+  .header a.active {
+    background-color: #1b3047e3;
+    color: #6be2e2;
+  }
+  .header-right {
+    transform: translateY(14vw);
+  }
+  
+  .header-right a:link {
+    float: right;
+    margin-left: 2vw;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 17vw;
+    transform: translateY(1vw);
+    
+  }
+  .foot {
+    float: right;
+    font-size: 1.9vw;
+    margin-right: 10vw;
+    transform: translateY(1vw);
+    width: 80vw;
+  }
+}
+
+/******tablet*******/
+@media only screen and (min-width:426px) and (max-width:768px) {
+  
+  .body {
+    background-image: url(/image/bgs.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vw;
+  }
+  .header {
+    padding: 1.5vw 1vw;
+    width: 100%;
+    height: 15vw;
+  }
+  .header a {
+    letter-spacing: 0.2vw;
+    float: left;
+    color: #6be2e2;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    margin-right: 1vw;
+    font-size: 3.5vw;
+    line-height: 0.1vw;
+    margin-top: 0.7vw;
+    font-family: "Techno Board", Courier;
+    border-radius: 0.5vw;
+    border: 2px solid gray;
+  }
+  
+  .Avatar {
+  background-image: url(/Images/avatar.png);
+  width: 11vw;
+  height: 11vw;
+  background-size: cover;
+  transform: translateY(2vw);
+  }
+  
+  .header a:hover {
+    background-color: #1b3047e3;
+    color: rgb(241, 239, 239);
+  }
+  
+  .header a.active {
+    background-color: #1b3047e3;
+    color: #6be2e2;
+  }
+  .header-right {
+    margin-right: 8vw;
+    transform: translateY(9vw);
+  }
+  
+  .header-right a:link {
+    float: right;
+    margin-left: 1vw;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10vw;
+    transform: translateY(1vw);
+    
+  }
+  .foot {
+    float: right;
+    font-size: 1.1vw;
+    margin-right: 26vw;
+    width: 48vw;
+    transform: translateY(0.5vw);
+  }
+}
+
+
+/******laptop*******/
+@media only screen and (min-width:769px) and (max-width:1024px) {
+  .wholescreen {
+    height: 10vw;
+  }
+  .body {
+    background-image: url(/image/bg2S.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vw;
+  }
+  .header {
+    padding: 1.5vw 1vw;
+    width: 100%;
+    height: 12.5vw;
+  }
+  .header a {
+    letter-spacing: 0.2vw;
+    float: left;
+    color: #6be2e2;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    margin-right: 1vw;
+    font-size: 3vw;
+    line-height: 0.3vw;
+    margin-top: 0.7vw;
+    font-family: "Techno Board", Courier;
+    border-radius: 0.5vw;
+    border: 2px solid gray;
+  }
+  
+  .Avatar {
+  background-image: url(/Images/avatar.png);
+  width: 10vw;
+  height: 10vw;
+  background-size: cover;
+  transform: translateY(-1vw);
+  }
+  
+  .header a:hover {
+    background-color: #1b3047e3;
+    color: rgb(241, 239, 239);
+  }
+  
+  .header a.active {
+    background-color: #1b3047e3;
+    color: #6be2e2;
+  }
+  .header-right {
+    margin-right: 18vw;
+    transform: translateY(6.5vw);
+  }
+  
+  .header-right a:link {
+    float: right;
+    margin-left: 1vw;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 8vw;
+    transform: translateY(1vw);
+    
+  }
+  .foot {
+    float: right;
+    font-size: 0.9vw;
+    margin-right: 31vw;
+    width: 37vw;
+    transform: translateY(0.2vw);
+  }
+}

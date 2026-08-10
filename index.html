@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holographic Login</title>
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: radial-gradient(circle at top, rgba(10, 48, 88, 0.95), #04060a 30%),
+        radial-gradient(circle at bottom right, rgba(8, 18, 40, 0.95), transparent 35%),
+        linear-gradient(180deg, #03050a 0%, #0e1220 100%);
+      color: #edf7ff;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding: 1rem;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 4rem 4rem;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* SOFT HOLOGRAPHIC BACKGROUND GLOWS */
+    .holo-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(75px);
+      opacity: 0.45;
+      animation: float 12s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, #00f2fe 0%, #4facfe 100%);
+      top: 8%;
+      left: 10%;
+    }
+
+    .orb-2 {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, #ff0844 0%, #ffb199 100%);
+      bottom: 8%;
+      right: 12%;
+      animation-delay: -5s;
+    }
+
+    .orb-3 {
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, #b182ff 0%, #613eff 100%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -8s;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(24px, 32px) scale(1.08); }
+    }
+
+    /* GLASS CARD CONTAINER */
+    .login-container {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 460px);
+      padding: 2.2rem;
+      border-radius: 24px;
+      background: rgba(15, 21, 42, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(38, 181, 255, 0.18);
+    }
+
+    .login-container::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.35), rgba(133, 96, 255, 0.28), rgba(255, 84, 158, 0.3));
+      z-index: -1;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+      padding: 1px;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00f2fe 0%, #b182ff 45%, #ffb199 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.06em;
+      line-height: 1.05;
+    }
+
+    .header p {
+      color: rgba(237, 247, 255, 0.76);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* FORM STYLES */
+    .input-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .input-group label {
+      display: block;
+      color: rgba(196, 200, 224, 0.92);
+      font-size: 0.87rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      color: #f2fbff;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .input-group input::placeholder {
+      color: rgba(206, 230, 255, 0.5);
+    }
+
+    .input-group input:focus {
+      border-color: rgba(0, 242, 254, 0.75);
+      box-shadow: 0 0 18px rgba(0, 242, 254, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* BUTTONS */
+    .btn-submit,
+    .btn-guest {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #00f2fe 0%, #613eff 100%);
+      color: #03131e;
+      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.18);
+      margin-top: 0.3rem;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(0, 242, 254, 0.28);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-guest {
+      margin-top: 0.8rem;
+      background: rgba(177, 130, 255, 0.12);
+      color: #dce8ff;
+      border: 1px solid rgba(177, 130, 255, 0.45);
+      box-shadow: inset 0 0 14px rgba(177, 130, 255, 0.12);
+    }
+
+    .btn-guest:hover {
+      background: rgba(177, 130, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 1.4rem 0;
+      color: rgba(181, 247, 255, 0.75);
+      font-size: 0.82rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .divider span {
+      padding: 0 0.75rem;
+    }
+
+    .tip-box {
+      margin-top: 1.65rem;
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
+      background: rgba(10, 14, 26, 0.72);
+      border: 1px solid rgba(0, 242, 254, 0.12);
+      color: rgba(214, 239, 255, 0.74);
+      line-height: 1.6;
+      font-size: 0.94rem;
+    }
+
+    .tip-box p:first-child {
+      margin-bottom: 0.45rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 0.75rem;
+        align-items: flex-start;
+      }
+
+      .login-container {
+        width: 100%;
+        padding: 1.6rem;
+        border-radius: 20px;
+      }
+
+      .header h2 {
+        font-size: 1.7rem;
+      }
+
+      .header p,
+      .tip-box,
+      .input-group label {
+        font-size: 0.92rem;
+      }
+
+      .input-group input,
+      .btn-submit,
+      .btn-guest {
+        padding: 0.95rem 1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .login-container {
+        padding: 1.25rem;
+      }
+
+      .header h2 {
+        font-size: 1.55rem;
+      }
+
+      .btn-submit,
+      .btn-guest {
+        font-size: 0.97rem;
+      }
+
+      .tip-box {
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (orientation: landscape) and (max-width: 900px) {
+      body {
+        align-items: flex-start;
+        padding: 1.5rem 0.75rem 0.75rem;
+      }
+
+      .login-container {
+        width: min(100%, 720px);
+        padding: 1.5rem;
+      }
+
+      .orb-1,
+      .orb-2,
+      .orb-3 {
+        filter: blur(60px);
+      }
+
+      .tip-box {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-height: 520px) and (orientation: landscape) {
+      body {
+        justify-content: flex-start;
+        padding-top: 1rem;
+      }
+
+      .login-container {
+        padding: 1.1rem;
+      }
+
+      .header h2 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND HOLOGRAPHIC LIGHTS -->
+  <div class="holo-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- MAIN LOGIN CARD -->
+  <div class="login-container">
+    <div class="header">
+      <h2>Welcome Back</h2>
+      <p>Log in to access your portal</p>
+    </div>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Username / Email</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="btn-submit">Sign In</button>
+    </form>
+
+    <div class="divider">
+      <span>OR</span>
+    </div>
+
+    <!-- GUEST OPTION -->
+    <button type="button" id="guestBtn" class="btn-guest">
+      Continue as Guest
+    </button>
+
+    <!-- TIP / INFORMATION BOX -->
+    <div class="tip-box">
+      <p>Tip: You can use any username and password for this demo page.</p>
+      <p>Guest mode gives you access without signing in.</p>
+    </div>
+  </div>
+
+  <script>
+    // FORM SUBMISSION HANDLER
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      alert('Logging in as: ' + username);
+    });
+
+    // GUEST ACCESS HANDLER
+    document.getElementById('guestBtn').addEventListener('click', function() {
+      alert('Proceeding as Guest...');
+    });
+  </script>
+</body>
+</html>

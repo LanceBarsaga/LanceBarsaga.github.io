@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LIGHT CONTROLLER | Lance Ian Barsaga</title>
+  <title>CLOCK | Lance Ian Barsaga</title>
   
   <!-- GOOGLE FONTS & ICONS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,12 +47,8 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: radial-gradient(circle at center, rgba(10, 25, 40, 0.9), rgba(4, 8, 14, 0.98));
-      transition: background 0.5s ease;
-    }
-
-    body.light-active .bg-wrapper {
-      background: radial-gradient(circle at center, rgba(0, 255, 224, 0.15), rgba(4, 8, 14, 0.98));
+      background: linear-gradient(to bottom, rgba(8, 12, 20, 0.85), rgba(8, 12, 20, 0.95)), 
+                  url('/Images/bg.gif.gif') center/cover no-repeat fixed;
     }
 
     /* TOP BAR & BACK BUTTON */
@@ -89,25 +85,22 @@
       transform: translateY(-2px);
     }
 
-    /* CONTROL PANEL CONTAINER */
-    .panel-container {
+    /* CLOCK CARD CONTAINER */
+    .clock-container {
       background: var(--card-bg);
       backdrop-filter: blur(15px);
       border: 1px solid rgba(0, 255, 224, 0.3);
       border-radius: 24px;
-      padding: 2.5rem 2rem;
+      padding: 3rem 4rem;
       text-align: center;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 255, 224, 0.05);
       position: relative;
       max-width: 90%;
-      width: 460px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 650px;
     }
 
     /* HUD CORNER ACCENTS */
-    .panel-container::before, .panel-container::after {
+    .clock-container::before, .clock-container::after {
       content: '';
       position: absolute;
       width: 20px;
@@ -115,7 +108,7 @@
       border: 2px solid var(--cyan-glow);
     }
 
-    .panel-container::before {
+    .clock-container::before {
       top: -2px;
       left: -2px;
       border-right: none;
@@ -123,7 +116,7 @@
       border-top-left-radius: 24px;
     }
 
-    .panel-container::after {
+    .clock-container::after {
       bottom: -2px;
       right: -2px;
       border-left: none;
@@ -131,79 +124,50 @@
       border-bottom-right-radius: 24px;
     }
 
-    .panel-title {
+    .clock-title {
       font-family: var(--font-heading);
       font-size: 1.2rem;
-      letter-spacing: 3px;
-      color: var(--cyan-bright);
+      letter-spacing: 4px;
+      color: #88c0d0;
       margin-bottom: 1.5rem;
       text-transform: uppercase;
-      text-shadow: 0 0 8px var(--cyan-glow);
     }
 
-    /* BULB IMAGE CONTAINER (RECTANGLE & LARGER) */
-    .bulb-box {
-      width: 100%;
-      max-width: 380px;
-      height: 240px;
-      border-radius: 16px;
-      background: rgba(2, 10, 16, 0.8);
-      border: 2px solid rgba(0, 255, 224, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.8rem;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
-      padding: 6px;
-    }
-
-    .bulb-box:hover {
-      border-color: var(--cyan-glow);
-      box-shadow: 0 0 25px rgba(0, 255, 224, 0.4), inset 0 0 15px rgba(0, 255, 224, 0.2);
-      transform: scale(1.02);
-    }
-
-    .bulb-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-      transition: all 0.3s ease;
-    }
-
-    body.light-active .bulb-box {
-      border-color: var(--cyan-glow);
-      box-shadow: 0 0 35px var(--cyan-glow), inset 0 0 25px rgba(0, 255, 224, 0.3);
-    }
-
-    body.light-active .bulb-box img {
-      filter: drop-shadow(0 0 15px var(--cyan-glow));
-    }
-
-    /* TOGGLE BUTTON & STATUS */
-    .status-badge {
+    /* DIGITAL CLOCK DISPLAY */
+    #clock {
       font-family: var(--font-heading);
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      padding: 0.5rem 1.4rem;
-      border-radius: 20px;
-      background: rgba(0, 255, 224, 0.15);
+      font-size: 3.8rem;
+      font-weight: 900;
       color: var(--cyan-glow);
-      border: 1px solid var(--cyan-glow);
-      box-shadow: 0 0 12px rgba(0, 255, 224, 0.4);
+      text-shadow: 0 0 20px var(--cyan-glow), 0 0 40px rgba(0, 255, 224, 0.4);
+      letter-spacing: 3px;
+      line-height: 1.1;
       margin-bottom: 1rem;
-      transition: all 0.3s ease;
     }
 
-    .instruction-text {
-      font-size: 0.85rem;
-      color: #88c0d0;
-      letter-spacing: 1px;
+    /* DATE DISPLAY */
+    #date-display {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--cyan-bright);
+      letter-spacing: 2px;
+      opacity: 0.85;
+      margin-top: 0.5rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .clock-container {
+        padding: 2rem 1.5rem;
+      }
+
+      #clock {
+        font-size: 2.5rem;
+      }
+
+      #date-display {
+        font-size: 0.95rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -211,23 +175,20 @@
         position: relative;
         top: 0;
         left: 0;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         width: 100%;
         display: flex;
         justify-content: center;
       }
 
-      .panel-container {
-        padding: 1.8rem 1.2rem;
-      }
-
-      .bulb-box {
-        height: 200px;
+      #clock {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
       }
     }
   </style>
 </head>
-<body class="light-active">
+<body>
 
   <!-- BACKGROUND OVERLAY -->
   <div class="bg-wrapper"></div>
@@ -239,37 +200,43 @@
     </a>
   </div>
 
-  <!-- CONTROL PANEL HUD -->
-  <div class="panel-container">
-    <div class="panel-title"><i class="bi bi-power me-2"></i> LIGHT CONTROL</div>
-    
-    <!-- RECTANGULAR BULB CONTAINER -->
-    <div class="bulb-box" onclick="light_change()">
-      <img id="personal" src="/Images/bulb_on.webp" alt="Bulb State">
-    </div>
-
-    <!-- STATUS BADGE -->
-    <div class="status-badge" id="statusBadge">STATE: POWER ON</div>
-
-    <p class="instruction-text"><i class="bi bi-hand-index-thumb me-1"></i> CLICK THE BULB TO TOGGLE LIGHT</p>
+  <!-- DIGITAL CLOCK HUD CARD -->
+  <div class="clock-container">
+    <div class="clock-title"><i class="bi bi-clock-history me-2"></i> SYSTEM TIME</div>
+    <div id="clock">00:00:00 AM</div>
+    <div id="date-display">LOADING DATE...</div>
   </div>
 
   <script>
-    function light_change() {
-      let image = document.getElementById('personal');
-      let statusBadge = document.getElementById('statusBadge');
-      let body = document.body;
+    function updateClock() {
+      const now = new Date();
+      
+      // Time Logic
+      let hh = now.getHours();
+      let mm = now.getMinutes();
+      let ss = now.getSeconds();
+      let session = "AM";
 
-      if (image.src.match("bulb_off")) {
-        image.src = "/Images/bulb_on.webp";
-        statusBadge.innerText = "STATE: POWER ON";
-        body.classList.add("light-active");
-      } else {
-        image.src = "/Images/bulb_off.jpg";
-        statusBadge.innerText = "STATE: POWER OFF";
-        body.classList.remove("light-active");
+      if (hh === 0) {
+        hh = 12;
+      } else if (hh >= 12) {
+        if (hh > 12) hh -= 12;
+        session = "PM";
       }
+
+      hh = (hh < 10) ? "0" + hh : hh;
+      mm = (mm < 10) ? "0" + mm : mm;
+      ss = (ss < 10) ? "0" + ss : ss;
+
+      document.getElementById("clock").innerText = `${hh}:${mm}:${ss} ${session}`;
+
+      // Date Logic
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById("date-display").innerText = now.toLocaleDateString('en-US', options).toUpperCase();
     }
+
+    setInterval(updateClock, 1000);
+    updateClock();
   </script>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <!--eto naman yung css na sinasabi ko sayo pwede kang gumami ng style-->
+ <!--Kita mo yung sa loob ng style jan ka gagawa ng design kumbaga yung ui(user interface) ng website mo-->
+ <!--then yung body karaniwang ginagamit na yan kasi pag gusto mo palitan yung buong background yan 
+ nilalagay pwede ka din maglagay jan ng image-->
+ <style>
+    body{
+        background-color: blue;/* kapag gusto mo color lang yung ilalagay mo sa background */
+        background-image: url();/* dito nilalagay yung name ng image na gagamitin mo */
+        background-image: url(image/bg.png);
+        /* ganito itsura kapag ilalagay mo yung image dipende yan if meron kang folder na nakalagay yung image */
+        /* kaya image/ bago yung name ng image kasi nasa folder sya na image yung name 
+        pero kung hindi namn pwedeng direct na agad yung name ng image */
+    }
+    .container{ /* eto yung name ng div na may class mas madali mo syang ma c-call out para malagyan ng design */
+                /* dapat laging may dot sa unahan yung class name kasi naka div s'ya */
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        /* pwede mo din palitan ng kulay at lagyan ng image same lang din sa body pero dito itong laman lng ng box mapaaplitan */
+    }   /* wag mo kalimutan maglagay lagi ng close kahaya nito { } pati na rin nito ; */
+
+ </style>
+
+<body>
+    <div> eto yun mag sisilbing container mo or magiging box 
+    <h1>header pwede dito ilagay yung mga title</h1>
+    <!--tignan mo nasa loob ng div yung h1 and p once na naglagay ka ng design sa div class nito-->
+    <!--kung ano lang yung nasa loob nya yun lang mababago like font size, color, font -->
+    <p>dito naman kapag paragraph yun ilalagay mo</p>
+    </div> <!--tignan mo yung arangement ng code, yung div na to ay magiging boX-->
+    <!--kahit ilang div pwede mong gawin basta lalagyan mo sya ng class if want mo gumawa ng marami para di ka malito-->
+    
+    <div class="container"> yung container pwede mo yan palitan ng kahit anong name yan yung magsisilbing name nong box</div>
+    <div class="container"> yun div nilalagyan ng class para hindi nakakalito pag marami ng div ang nakalagay </div>
+
+
+</body>
+</html>
